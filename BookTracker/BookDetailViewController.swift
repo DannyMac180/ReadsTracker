@@ -32,14 +32,7 @@ class BookDetailViewController: UIViewController {
         setUpViews()
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let managedObjectContext = getCoreDataStack()
-        
-    }
-    
+
     // MARK: - Private Functions
     
     @IBAction func toReadButton(_ sender: Any) {

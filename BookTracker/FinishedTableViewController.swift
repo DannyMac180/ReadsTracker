@@ -1,5 +1,5 @@
 //
-//  ReadingTableViewController.swift
+//  FinishedTableViewController.swift
 //  BookTracker
 //
 //  Created by Daniel McAteer on 10/8/17.
@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import SDWebImage
 import CoreData
 
-class ReadingTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FinishedTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Variable/Constants
+    // MARK: - Variables/Constant
     
     var googleBooksClient = GoogleBooksClient.sharedInstance()
-    var booksReading: [Book] = []
+    var booksFinished: [Book] = []
     var passedBook: GoogleBook!
     
     // MARK: - Lifecycle Methods
@@ -32,7 +33,7 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
         super.viewWillAppear(true)
         
         if let savedBooks = loadSavedBooksToRead() {
-            booksReading = savedBooks
+            booksFinished = savedBooks
         }
         
         self.tableView.reloadData()
@@ -40,14 +41,12 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "readingShowDetail" {
+        if segue.identifier == "finishedShowDetail" {
             
             let viewController = segue.destination as! BookDetailViewController
             
             viewController.currentBook = passedBook
         }
-        
-        
     }
     
     // MARK: - Private Functions
@@ -60,12 +59,12 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
             
             let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
             booksFetch.sortDescriptors = []
-            booksFetch.predicate = NSPredicate(format: "category == %@", argumentArray: [GoogleBook.Category.reading.rawValue])
+            booksFetch.predicate = NSPredicate(format: "category == %@", argumentArray: [GoogleBook.Category.finished.rawValue])
             
             do {
                 
-                booksReading = try managedObjectContext.fetch(booksFetch) as! [Book]
-                return booksReading
+                booksFinished = try managedObjectContext.fetch(booksFetch) as! [Book]
+                return booksFinished
                 
             } catch {
                 
@@ -78,18 +77,18 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.stack
     }
+
     
     // MARK: - Delegate Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return booksReading.count
+        return booksFinished.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: BookTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BookTableViewCell
         
-        let currentBook = booksReading[indexPath.row]
+        let currentBook = booksFinished[indexPath.row]
         
         cell.authorLabel.text = currentBook.author
         cell.titleLabel?.text = currentBook.title
@@ -100,9 +99,9 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedBook = booksReading[indexPath.row]
-        passedBook = GoogleBook(authors: [selectedBook.author!], category: GoogleBook.Category(rawValue: "reading"), cover: selectedBook.cover, pageCount: Int(selectedBook.pageCount), summary: selectedBook.summary, title: selectedBook.title!)
-        performSegue(withIdentifier: "readingShowDetail", sender: self)
+        let selectedBook = booksFinished[indexPath.row]
+        passedBook = GoogleBook(authors: [selectedBook.author!], category: GoogleBook.Category(rawValue: "finished"), cover: selectedBook.cover, pageCount: Int(selectedBook.pageCount), summary: selectedBook.summary, title: selectedBook.title!)
+        performSegue(withIdentifier: "finishedShowDetail", sender: self)
         
     }
 }
