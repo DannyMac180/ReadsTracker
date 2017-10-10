@@ -67,6 +67,30 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.stack
     }
+    
+    func deleteCoreDataOf(book: Book) {
+        
+        do {
+            
+            getCoreDataStack().context.delete(book)
+            try getCoreDataStack().saveContext()
+            
+        } catch {
+            
+            print("Deleting book failed")
+        }
+    }
+    
+    func removeBookFromTableView(indexPath: IndexPath) {
+        
+        tableView.beginUpdates()
+        
+        booksFinished.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        tableView.endUpdates()
+    }
 
     
     // MARK: - Delegate Methods
@@ -98,6 +122,13 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
         
         self.navigationController!.pushViewController(detailController, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteCoreDataOf(book: booksFinished[indexPath.row])
+            removeBookFromTableView(indexPath: indexPath)
+        }
     }
 }
 

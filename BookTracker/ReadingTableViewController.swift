@@ -67,6 +67,30 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
         return appDelegate.stack
     }
     
+    func deleteCoreDataOf(book: Book) {
+        
+        do {
+            
+            getCoreDataStack().context.delete(book)
+            try getCoreDataStack().saveContext()
+            
+        } catch {
+            
+            print("Deleting book failed")
+        }
+    }
+    
+    func removeBookFromTableView(indexPath: IndexPath) {
+        
+        tableView.beginUpdates()
+        
+        booksReading.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+        tableView.endUpdates()
+    }
+    
     // MARK: - Delegate Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,6 +121,13 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
         
         self.navigationController!.pushViewController(detailController, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteCoreDataOf(book: booksReading[indexPath.row])
+            removeBookFromTableView(indexPath: indexPath)
+        }
     }
 }
 
