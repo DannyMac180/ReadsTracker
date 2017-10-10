@@ -38,18 +38,6 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
         self.tableView.reloadData()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "readingShowDetail" {
-            
-            let viewController = segue.destination as! BookDetailViewController
-            
-            viewController.currentBook = passedBook
-        }
-        
-        
-    }
-    
     // MARK: - Private Functions
     
     func loadSavedBooksToRead() -> [Book]? {
@@ -100,9 +88,14 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         let selectedBook = booksReading[indexPath.row]
+        
         passedBook = GoogleBook(authors: [selectedBook.author!], category: GoogleBook.Category(rawValue: "reading"), cover: selectedBook.cover, pageCount: Int(selectedBook.pageCount), summary: selectedBook.summary, title: selectedBook.title!)
-        performSegue(withIdentifier: "readingShowDetail", sender: self)
+        
+        detailController.currentBook = passedBook
+        
+        self.navigationController!.pushViewController(detailController, animated: true)
         
     }
 }
