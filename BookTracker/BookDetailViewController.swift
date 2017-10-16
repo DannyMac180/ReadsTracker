@@ -23,6 +23,10 @@ class BookDetailViewController: UIViewController {
     // MARK: - Variables/Constants
     
     var currentBook: GoogleBook!
+    var savedBooks: [Book] = []
+    var toRead = "toRead"
+    var reading = "reading"
+    var finished = "finished"
     
     // MARK: - Lifecycle Methods
     
@@ -30,34 +34,120 @@ class BookDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setUpViews()
-        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let books = loadSavedBooks() {
+            savedBooks = books
+        }
+    }
+    
     // MARK: - Private Functions
     
-    @IBAction func toReadButton(_ sender: Any) {
-        
-        saveCoreData(book: currentBook, category: GoogleBook.Category.toRead)
-        self.dismiss(animated: true, completion: nil)
-        
+    @IBAction func toReadAction(_ sender: Any) {
+        setCategory(toRead)
+    }
+
+    @IBAction func readingAction(_ sender: Any) {
+        if currentBookIsSaved() {
+            updateBook(category: reading)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: reading)!)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
-    @IBAction func readingButton(_ sender: Any) {
-        
-        saveCoreData(book: currentBook, category: GoogleBook.Category.reading)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func finishedButton(_ sender: Any) {
-        
-        saveCoreData(book: currentBook, category: GoogleBook.Category.finished)
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func finishedAction(_ sender: Any) {
+        if currentBookIsSaved() {
+            updateBook(category: finished)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: finished)!)
+            self.navigationController?.popViewController(animated: true)
+        }
         
     }
     
     func getCoreDataStack() -> CoreDataStack {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.stack
+    }
+    
+    func fetchCurrentBook() -> Book {
+        
+        do {
+            
+            let managedObjectContext = getCoreDataStack().context
+            
+            let currentBookFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
+            currentBookFetch.sortDescriptors = []
+            currentBookFetch.predicate = NSPredicate(format: "id == %@", argumentArray: [currentBook.id])
+            
+            do {
+                
+                let savedBookArray = try managedObjectContext.fetch(currentBookFetch) as! [Book]
+                return savedBookArray[0]
+                
+            } catch {
+                
+                fatalError("Failed to fetch photos: \(error)")
+            }
+        }
+    }
+    
+    func loadSavedBooks() -> [Book]? {
+        
+        do {
+            
+            let managedObjectContext = getCoreDataStack().context
+            
+            let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
+            booksFetch.sortDescriptors = []
+            
+            do {
+                
+                let books = try managedObjectContext.fetch(booksFetch) as! [Book]
+                return books
+                
+            } catch {
+                
+                fatalError("Failed to fetch photos: \(error)")
+            }
+        }
+    }
+    
+    func setCategory(_ category: String) {
+        if currentBookIsSaved() {
+            updateBook(category: category)
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: category)!)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func currentBookIsSaved() -> Bool {
+        for book in savedBooks {
+            if currentBook.id == book.id {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func updateBook(category: String) {
+        
+        let savedBook = fetchCurrentBook()
+        savedBook.setValue(category, forKey: "category")
+        
+        do {
+            try getCoreDataStack().context.save()
+        } catch {
+            Alert.showbasic(title: "OK", message: "Couldn't save new category", vc: self)
+        }
     }
     
     func setUpViews() {
@@ -79,6 +169,7 @@ class BookDetailViewController: UIViewController {
         let managedObjectContext = getCoreDataStack().context
         let entity = NSEntityDescription.entity(forEntityName: "Book", in: managedObjectContext)!
         let savedBook = NSManagedObject(entity: entity, insertInto: managedObjectContext) as! Book
+        savedBook.setValue(book.id, forKey: "id")
         savedBook.setValue(book.authors[0], forKey: "author")
         savedBook.setValue(book.title, forKey: "title")
         savedBook.setValue(category.rawValue, forKey: "category")
@@ -93,7 +184,5 @@ class BookDetailViewController: UIViewController {
             print("Add Core Data Failed")
         }
     }
-    
-    
 }
 

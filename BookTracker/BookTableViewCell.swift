@@ -15,6 +15,20 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var backGroundCardView: UIView!
+    
+    func updateUI() {
+        backGroundCardView.backgroundColor = UIColor.white
+        contentView.backgroundColor = UIColor.brown
+        
+        backGroundCardView.layer.cornerRadius = 3.0
+        backGroundCardView.layer.masksToBounds = false
+        
+        backGroundCardView.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        
+        backGroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        backGroundCardView.layer.shadowOpacity = 0.8
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -2,7 +2,7 @@
 //  Book+CoreDataProperties.swift
 //  BookTracker
 //
-//  Created by Daniel McAteer on 10/8/17.
+//  Created by Daniel McAteer on 10/11/17.
 //  Copyright © 2017 Daniel McAteer. All rights reserved.
 //
 
@@ -22,5 +22,6 @@ extension Book {
     @NSManaged public var pageCount: Int16
     @NSManaged public var summary: String?
     @NSManaged public var title: String?
+    @NSManaged public var id: String?
 
 }

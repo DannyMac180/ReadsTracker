@@ -10,8 +10,9 @@ import Foundation
 
 class GoogleBook {
     
+    let id: String
     let authors: [String]
-    let category: Category?
+    var category: Category?
     let cover: String?
     let pageCount: Int?
     let summary: String?
@@ -21,10 +22,12 @@ class GoogleBook {
         case toRead = "toRead"
         case reading = "reading"
         case finished = "finished"
+        case none = "none"
     }
     
-    init(authors: [String], category: Category?, cover: String?, pageCount: Int?, summary: String?, title: String) {
+    init(id: String, authors: [String], category: Category?, cover: String?, pageCount: Int?, summary: String?, title: String) {
         
+        self.id = id
         self.authors = authors
         self.category = category
         self.cover = cover

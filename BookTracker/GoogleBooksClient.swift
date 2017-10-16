@@ -68,6 +68,7 @@ class GoogleBooksClient: NSObject {
             
             for book in bookResults {
                 if let volumeInfo = book["volumeInfo"] as? [String: Any],
+                    let id = book["id"] as? String,
                     let title = volumeInfo["title"] as? String,
                     let authors = volumeInfo["authors"] as? [String],
                     let pageCount = volumeInfo["pageCount"] as! Int?,
@@ -75,7 +76,7 @@ class GoogleBooksClient: NSObject {
                     let summary = volumeInfo["description"] as! String? {
                     
                     let cover = imageDict["smallThumbnail"]
-                    let bookInfo = GoogleBook(authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title)
+                    let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title)
                     books.append(bookInfo)
                 }
             }

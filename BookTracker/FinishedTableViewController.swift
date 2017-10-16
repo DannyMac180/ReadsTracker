@@ -27,6 +27,9 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.backgroundColor = UIColor.brown
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,10 +104,11 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: BookTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BookTableViewCell
+        cell.updateUI()
         
         let currentBook = booksFinished[indexPath.row]
         
-        cell.authorLabel.text = currentBook.author
+        cell.authorLabel.text = "by \(currentBook.author!)"
         cell.titleLabel?.text = currentBook.title
         cell.bookImageView.sd_setImage(with: URL(string: currentBook.cover!))
         
@@ -116,8 +120,8 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         let selectedBook = booksFinished[indexPath.row]
         
-        passedBook = GoogleBook(authors: [selectedBook.author!], category: GoogleBook.Category(rawValue: "finished"), cover: selectedBook.cover, pageCount: Int(selectedBook.pageCount), summary: selectedBook.summary, title: selectedBook.title!)
-        
+        passedBook = GoogleBook(id: selectedBook.id!, authors: [selectedBook.author!], category: GoogleBook.Category(rawValue: "finished"), cover: selectedBook.cover, pageCount: Int(selectedBook.pageCount), summary: selectedBook.summary, title: selectedBook.title!)
+
         detailController.currentBook = passedBook
         
         self.navigationController!.pushViewController(detailController, animated: true)

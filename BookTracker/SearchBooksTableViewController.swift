@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import CoreData
 
 class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -16,6 +17,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     // MARK: - Variables
     var bookSearchResults = [GoogleBook]()
+    var savedBooks: [Book] = []
     let searchController = UISearchController(searchResultsController: nil)
     let googleBooksClient = GoogleBooksClient()
     var passedBook: GoogleBook!
@@ -25,22 +27,21 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.backgroundColor = UIColor.brown
+        
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        if segue.identifier == "showBookDetail" {
-            
-            let viewController = segue.destination as! BookDetailViewController
-            
-            viewController.currentBook = passedBook
+        if let books = loadSavedBooks() {
+            savedBooks = books
         }
-        
-        
     }
     
     // MARK: - Private Instance Methods
@@ -58,8 +59,30 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    func loadSavedBooks() -> [Book]? {
+        
+        do {
+            
+            let managedObjectContext = getCoreDataStack().context
+            
+            let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
+            booksFetch.sortDescriptors = []
+            
+            do {
+                
+                let books = try managedObjectContext.fetch(booksFetch) as! [Book]
+                return books
+                
+            } catch {
+                
+                fatalError("Failed to fetch photos: \(error)")
+            }
+        }
+    }
+    
+    func getCoreDataStack() -> CoreDataStack {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.stack
     }
     
     // MARK: - Delegate Methods
@@ -70,6 +93,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: BookTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BookTableViewCell
+        cell.updateUI()
         
         let currentBook = bookSearchResults[indexPath.row]
         
@@ -82,8 +106,13 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        passedBook = bookSearchResults[indexPath.row]
-        performSegue(withIdentifier: "showBookDetail", sender: self)
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
+        let selectedBook = bookSearchResults[indexPath.row]
+
+        passedBook = selectedBook
+        detailController.currentBook = passedBook
+        
+        self.navigationController!.pushViewController(detailController, animated: true)
         
     }
 }

@@ -2,7 +2,7 @@
 //  Book+CoreDataClass.swift
 //  BookTracker
 //
-//  Created by Daniel McAteer on 10/8/17.
+//  Created by Daniel McAteer on 10/11/17.
 //  Copyright © 2017 Daniel McAteer. All rights reserved.
 //
 
@@ -12,11 +12,12 @@ import CoreData
 @objc(Book)
 public class Book: NSManagedObject {
     
-    convenience init(category: String?, title: String, author: String, pageCount: Int, cover: String?, summary: String?, context: NSManagedObjectContext) {
+    convenience init(id: String, category: String?, title: String, author: String, pageCount: Int, cover: String?, summary: String?, context: NSManagedObjectContext) {
         
         if let ent = NSEntityDescription.entity(forEntityName: "Book", in: context) {
             
             self.init(entity: ent, insertInto: context)
+            self.id = id
             self.category = category
             self.title = title
             self.author = author
