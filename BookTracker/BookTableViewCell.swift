@@ -18,8 +18,9 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var backGroundCardView: UIView!
     
     func updateUI() {
+        
         backGroundCardView.backgroundColor = UIColor.white
-        contentView.backgroundColor = UIColor.brown
+        contentView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
         
         backGroundCardView.layer.cornerRadius = 3.0
         backGroundCardView.layer.masksToBounds = false

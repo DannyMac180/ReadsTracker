@@ -51,24 +51,11 @@ class BookDetailViewController: UIViewController {
     }
 
     @IBAction func readingAction(_ sender: Any) {
-        if currentBookIsSaved() {
-            updateBook(category: reading)
-            self.navigationController?.popViewController(animated: true)
-        } else {
-            saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: reading)!)
-            self.navigationController?.popViewController(animated: true)
-        }
+        setCategory(reading)
     }
     
     @IBAction func finishedAction(_ sender: Any) {
-        if currentBookIsSaved() {
-            updateBook(category: finished)
-            self.navigationController?.popViewController(animated: true)
-        } else {
-            saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: finished)!)
-            self.navigationController?.popViewController(animated: true)
-        }
-        
+        setCategory(finished)
     }
     
     func getCoreDataStack() -> CoreDataStack {

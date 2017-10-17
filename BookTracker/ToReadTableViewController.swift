@@ -26,7 +26,8 @@ class ToReadTableViewController: UIViewController, UITableViewDataSource, UITabl
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        tableView.backgroundColor = UIColor.brown
+        tableView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
+        self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -28,7 +28,8 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        tableView.backgroundColor = UIColor.brown
+        tableView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
+        self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
