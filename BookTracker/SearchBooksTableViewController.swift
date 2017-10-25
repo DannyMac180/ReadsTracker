@@ -14,13 +14,15 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     // MARK: - Variables
     var bookSearchResults = [GoogleBook]()
     var savedBooks: [Book] = []
     let searchController = UISearchController(searchResultsController: nil)
     let googleBooksClient = GoogleBooksClient()
     var passedBook: GoogleBook!
+    
     
     // MARK: - Lifecycle Methods
     
@@ -40,8 +42,18 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.activityIndicator.isHidden = true
+        
         if let books = loadSavedBooks() {
             savedBooks = books
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if Reachability.isConnectedToNetwork() == false {
+            Alert.showbasic(title: "No Internet", message: "You need an internet connection to search books.", vc: self)
         }
     }
     
@@ -126,11 +138,15 @@ extension SearchBooksTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         if let formattedTerm = formatSearch(withText: searchController.searchBar.text!) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
+                self.activityIndicator.startAnimating()
                 DispatchQueue.main.async {
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
                         self.tableView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                    } else {
+                        Alert.showbasic(title: "Error", message: "The search failed.", vc: self)
                     }
                 }
             }
@@ -143,11 +159,15 @@ extension SearchBooksTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let formattedTerm = formatSearch(withText: searchBar.text) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
+                self.activityIndicator.startAnimating()
                 DispatchQueue.main.async {
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
                         self.tableView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                    } else {
+                        Alert.showbasic(title: "Error", message: "The search failed.", vc: self)
                     }
                 }
             }
@@ -157,11 +177,15 @@ extension SearchBooksTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let formattedTerm = formatSearch(withText: searchText) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
+                self.activityIndicator.startAnimating()
                 DispatchQueue.main.async {
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
                         self.tableView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                    } else {
+                        Alert.showbasic(title: "Error", message: "The search failed.", vc: self)
                     }
                 }
             }

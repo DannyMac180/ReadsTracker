@@ -16,6 +16,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var backGroundCardView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func updateUI() {
         

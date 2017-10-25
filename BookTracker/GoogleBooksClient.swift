@@ -35,7 +35,7 @@ class GoogleBooksClient: NSObject {
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             if let error = error {
-                print("The request failed due to error: \(error).")
+                print("Download failed due to error: \(error)")
                 return
             }
             
