@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GoogleBooksClient: NSObject {
     
@@ -36,6 +37,8 @@ class GoogleBooksClient: NSObject {
             
             if let error = error {
                 print("Download failed due to error: \(error)")
+                let vc = self.getTopViewController()
+                Alert.showbasic(title: "Oops!", message: "Error: \(error.localizedDescription)", vc: vc)
                 return
             }
             
@@ -87,6 +90,24 @@ class GoogleBooksClient: NSObject {
         }
         
         return books
+    }
+    
+func getTopViewController() -> UIViewController {
+        
+        var viewController = UIViewController()
+        
+        if let vc =  UIApplication.shared.delegate?.window??.rootViewController {
+            
+            viewController = vc
+            var presented = vc
+            
+            while let top = presented.presentedViewController {
+                presented = top
+                viewController = top
+            }
+        }
+        
+        return viewController
     }
 }
 

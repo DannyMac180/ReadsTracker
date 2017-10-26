@@ -44,6 +44,11 @@ class BookDetailViewController: UIViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        summaryTextView.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
     // MARK: - Private Functions
     
     @IBAction func toReadAction(_ sender: Any) {
@@ -139,7 +144,7 @@ class BookDetailViewController: UIViewController {
     
     func setUpViews() {
         
-        authorLabel.text = currentBook.authors[0]
+        authorLabel.text = "by \(currentBook.authors[0])"
         titleLabel.text = currentBook.title
         summaryTextView.text = currentBook.summary
         bookImageView.sd_setImage(with: URL(string: currentBook.cover!))

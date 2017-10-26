@@ -14,7 +14,6 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - Variables
     var bookSearchResults = [GoogleBook]()
@@ -41,8 +40,6 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.activityIndicator.isHidden = true
         
         if let books = loadSavedBooks() {
             savedBooks = books
@@ -136,59 +133,53 @@ extension SearchBooksTableViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     
     func updateSearchResults(for searchController: UISearchController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let formattedTerm = formatSearch(withText: searchController.searchBar.text!) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
-                self.activityIndicator.startAnimating()
                 DispatchQueue.main.async {
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
                         self.tableView.reloadData()
-                        self.activityIndicator.stopAnimating()
-                    } else {
-                        Alert.showbasic(title: "Error", message: "The search failed.", vc: self)
                     }
                 }
             }
         }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 
 extension SearchBooksTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let formattedTerm = formatSearch(withText: searchBar.text) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
-                self.activityIndicator.startAnimating()
                 DispatchQueue.main.async {
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
                         self.tableView.reloadData()
-                        self.activityIndicator.stopAnimating()
-                    } else {
-                        Alert.showbasic(title: "Error", message: "The search failed.", vc: self)
                     }
                 }
             }
         }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let formattedTerm = formatSearch(withText: searchText) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
-                self.activityIndicator.startAnimating()
                 DispatchQueue.main.async {
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
                         self.tableView.reloadData()
-                        self.activityIndicator.stopAnimating()
-                    } else {
-                        Alert.showbasic(title: "Error", message: "The search failed.", vc: self)
                     }
                 }
             }
         }
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
