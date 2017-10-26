@@ -14,7 +14,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-
+    
     // MARK: - Variables
     var bookSearchResults = [GoogleBook]()
     var savedBooks: [Book] = []
@@ -36,6 +36,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = "Search by title or author"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,14 +44,6 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         
         if let books = loadSavedBooks() {
             savedBooks = books
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if Reachability.isConnectedToNetwork() == false {
-            Alert.showbasic(title: "No Internet", message: "You need an internet connection to search books.", vc: self)
         }
     }
     
@@ -118,7 +111,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         let selectedBook = bookSearchResults[indexPath.row]
-
+        
         passedBook = selectedBook
         detailController.currentBook = passedBook
         
@@ -137,17 +130,18 @@ extension SearchBooksTableViewController: UISearchResultsUpdating {
         if let formattedTerm = formatSearch(withText: searchController.searchBar.text!) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
                 DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
                         self.tableView.reloadData()
+                        }
                     }
                 }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
-}
 
 extension SearchBooksTableViewController: UISearchBarDelegate {
     
@@ -155,6 +149,7 @@ extension SearchBooksTableViewController: UISearchBarDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let formattedTerm = formatSearch(withText: searchBar.text) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 DispatchQueue.main.async {
                     if let books = books {
                         self.bookSearchResults = books
@@ -164,7 +159,6 @@ extension SearchBooksTableViewController: UISearchBarDelegate {
                 }
             }
         }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -172,6 +166,7 @@ extension SearchBooksTableViewController: UISearchBarDelegate {
         if let formattedTerm = formatSearch(withText: searchText) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
                 DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
@@ -180,6 +175,5 @@ extension SearchBooksTableViewController: UISearchBarDelegate {
                 }
             }
         }
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }

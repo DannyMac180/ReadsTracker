@@ -38,7 +38,9 @@ class GoogleBooksClient: NSObject {
             if let error = error {
                 print("Download failed due to error: \(error)")
                 let vc = self.getTopViewController()
-                Alert.showbasic(title: "Oops!", message: "Error: \(error.localizedDescription)", vc: vc)
+                DispatchQueue.main.async {
+                        Alert.showbasic(title: "Oops!", message: error.localizedDescription, vc: vc)
+                }
                 return
             }
             
