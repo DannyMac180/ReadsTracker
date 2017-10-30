@@ -10,15 +10,14 @@ import Foundation
 import UIKit
 
 class HexColor {
-    
-    class func hexStringToUIColor(hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    class func hexStringToUIColor(hex: String) -> UIColor {
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
-        if (cString.hasPrefix("#")) {
+        if cString.hasPrefix("#") {
             cString.remove(at: cString.startIndex)
         }
         
-        if ((cString.characters.count) != 6) {
+        if cString.characters.count != 6 {
             return UIColor.gray
         }
         

@@ -9,7 +9,6 @@
 import UIKit
 
 class BookTableViewCell: UITableViewCell {
-    
     var currentBook: GoogleBook?
     
     @IBOutlet weak var bookImageView: UIImageView!
@@ -19,27 +18,20 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func updateUI() {
-        
-        backGroundCardView.backgroundColor = UIColor.white
         contentView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
-        
+        backGroundCardView.backgroundColor = UIColor.white
         backGroundCardView.layer.cornerRadius = 3.0
         backGroundCardView.layer.masksToBounds = false
-        
         backGroundCardView.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        
         backGroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
         backGroundCardView.layer.shadowOpacity = 0.8
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
 }
-

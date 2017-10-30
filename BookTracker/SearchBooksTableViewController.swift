@@ -24,10 +24,8 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     
     // MARK: - Lifecycle Methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
         self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
@@ -41,14 +39,12 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         if let books = loadSavedBooks() {
             savedBooks = books
         }
     }
     
     // MARK: - Private Instance Methods
-    
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
@@ -65,19 +61,16 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     func loadSavedBooks() -> [Book]? {
         
         do {
-            
             let managedObjectContext = getCoreDataStack().context
             
             let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
             booksFetch.sortDescriptors = []
             
             do {
-                
                 let books = try managedObjectContext.fetch(booksFetch) as! [Book]
                 return books
                 
             } catch {
-                
                 fatalError("Failed to fetch photos: \(error)")
             }
         }
@@ -89,7 +82,6 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     // MARK: - Delegate Methods
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookSearchResults.count
     }
@@ -100,7 +92,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         
         let currentBook = bookSearchResults[indexPath.row]
         
-        cell.authorLabel.text = currentBook.authors[0]
+        cell.authorLabel.text = "by \(currentBook.authors[0])"
         cell.titleLabel?.text = currentBook.title
         cell.bookImageView.sd_setImage(with: URL(string: currentBook.cover!))
         
@@ -108,23 +100,18 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         let selectedBook = bookSearchResults[indexPath.row]
-        
         passedBook = selectedBook
         detailController.currentBook = passedBook
         
         self.navigationController!.pushViewController(detailController, animated: true)
-        
     }
 }
 
 // MARK: - Extensions
-
 extension SearchBooksTableViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
-    
     func updateSearchResults(for searchController: UISearchController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let formattedTerm = formatSearch(withText: searchController.searchBar.text!) {
@@ -144,7 +131,6 @@ extension SearchBooksTableViewController: UISearchResultsUpdating {
     }
 
 extension SearchBooksTableViewController: UISearchBarDelegate {
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let formattedTerm = formatSearch(withText: searchBar.text) {

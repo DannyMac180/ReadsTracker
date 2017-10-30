@@ -13,7 +13,6 @@ import SDWebImage
 class BookDetailViewController: UIViewController {
     
     // MARK: - Outlets
-    
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -21,7 +20,6 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var summaryTextView: UITextView!
     
     // MARK: - Variables/Constants
-    
     var currentBook: GoogleBook!
     var savedBooks: [Book] = []
     var toRead = "toRead"
@@ -29,16 +27,13 @@ class BookDetailViewController: UIViewController {
     var finished = "finished"
     
     // MARK: - Lifecycle Methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         if let books = loadSavedBooks() {
             savedBooks = books
         }
@@ -71,7 +66,6 @@ class BookDetailViewController: UIViewController {
     func fetchCurrentBook() -> Book {
         
         do {
-            
             let managedObjectContext = getCoreDataStack().context
             
             let currentBookFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
@@ -79,12 +73,10 @@ class BookDetailViewController: UIViewController {
             currentBookFetch.predicate = NSPredicate(format: "id == %@", argumentArray: [currentBook.id])
             
             do {
-                
                 let savedBookArray = try managedObjectContext.fetch(currentBookFetch) as! [Book]
                 return savedBookArray[0]
                 
             } catch {
-                
                 fatalError("Failed to fetch photos: \(error)")
             }
         }
@@ -93,19 +85,16 @@ class BookDetailViewController: UIViewController {
     func loadSavedBooks() -> [Book]? {
         
         do {
-            
             let managedObjectContext = getCoreDataStack().context
             
             let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
             booksFetch.sortDescriptors = []
             
             do {
-                
                 let books = try managedObjectContext.fetch(booksFetch) as! [Book]
                 return books
                 
             } catch {
-                
                 fatalError("Failed to fetch photos: \(error)")
             }
         }
@@ -131,7 +120,6 @@ class BookDetailViewController: UIViewController {
     }
     
     func updateBook(category: String) {
-        
         let savedBook = fetchCurrentBook()
         savedBook.setValue(category, forKey: "category")
         
@@ -143,7 +131,6 @@ class BookDetailViewController: UIViewController {
     }
     
     func setUpViews() {
-        
         authorLabel.text = "by \(currentBook.authors[0])"
         titleLabel.text = currentBook.title
         summaryTextView.text = currentBook.summary
@@ -157,7 +144,6 @@ class BookDetailViewController: UIViewController {
     }
     
     func saveCoreData(book: GoogleBook, category: GoogleBook.Category) {
-        
         let managedObjectContext = getCoreDataStack().context
         let entity = NSEntityDescription.entity(forEntityName: "Book", in: managedObjectContext)!
         let savedBook = NSManagedObject(entity: entity, insertInto: managedObjectContext) as! Book
@@ -177,4 +163,3 @@ class BookDetailViewController: UIViewController {
         }
     }
 }
-

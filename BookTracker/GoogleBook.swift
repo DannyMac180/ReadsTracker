@@ -9,7 +9,6 @@
 import Foundation
 
 class GoogleBook {
-    
     let id: String
     let authors: [String]
     var category: Category?
@@ -19,14 +18,13 @@ class GoogleBook {
     let title: String
     
     enum  Category: String {
-        case toRead = "toRead"
-        case reading = "reading"
-        case finished = "finished"
-        case none = "none"
+        case toRead
+        case reading
+        case finished
+        case none
     }
     
     init(id: String, authors: [String], category: Category?, cover: String?, pageCount: Int?, summary: String?, title: String) {
-        
         self.id = id
         self.authors = authors
         self.category = category
@@ -36,4 +34,3 @@ class GoogleBook {
         self.title = title
     }
 }
-
