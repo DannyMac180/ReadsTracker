@@ -18,6 +18,9 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var pageCountLabel: UILabel!
     @IBOutlet weak var summaryTextView: UITextView!
+    @IBOutlet weak var toReadButton: UIButton!
+    @IBOutlet weak var readingButton: UIButton!
+    @IBOutlet weak var finishedButton: UIButton!
     
     // MARK: - Variables/Constants
     var currentBook: GoogleBook!
@@ -37,6 +40,8 @@ class BookDetailViewController: UIViewController {
         if let books = loadSavedBooks() {
             savedBooks = books
         }
+        
+        hideCurrentCategory()
     }
     
     override func viewDidLayoutSubviews() {
@@ -160,6 +165,21 @@ class BookDetailViewController: UIViewController {
             
         } catch {
             print("Add Core Data Failed")
+        }
+    }
+    
+    func hideCurrentCategory() {
+        if let category = currentBook.category?.rawValue {
+            switch category {
+                case category where category == toRead:
+                    toReadButton.isHidden = true
+                case category where category == reading:
+                    readingButton.isHidden = true
+                case category where category == finished:
+                    finishedButton.isHidden = true
+                default:
+                    return
+            }
         }
     }
 }

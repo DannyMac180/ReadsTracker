@@ -583,9 +583,12 @@
                     <connections>
                         <outlet property="authorLabel" destination="077-0u-xTZ" id="UrI-CO-807"/>
                         <outlet property="bookImageView" destination="AeT-Vi-dLn" id="LuR-US-vS3"/>
+                        <outlet property="finishedButton" destination="b0h-Oj-TMb" id="2Yl-lt-vre"/>
                         <outlet property="pageCountLabel" destination="VBq-4E-34q" id="PYs-8d-PVx"/>
+                        <outlet property="readingButton" destination="2gG-TS-mjE" id="3Rb-sf-S4S"/>
                         <outlet property="summaryTextView" destination="qsJ-hb-3FL" id="vUT-ng-rhh"/>
                         <outlet property="titleLabel" destination="JPF-bW-EN3" id="500-9l-ZzO"/>
+                        <outlet property="toReadButton" destination="4iv-am-jYj" id="4Zu-G9-g4f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAs-7H-tmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
