@@ -78,7 +78,8 @@ class GoogleBooksClient: NSObject {
                     let authors = volumeInfo["authors"] as? [String],
                     let pageCount = volumeInfo["pageCount"] as! Int?,
                     let imageDict = volumeInfo["imageLinks"] as? [String: String],
-                    let summary = volumeInfo["description"] as! String? {
+                    let searchInfo = book["searchInfo"] as? [String: Any],
+                    let summary = searchInfo["textSnippet"] as! String? {
                     
                     let cover = imageDict["smallThumbnail"]
                     let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title)
