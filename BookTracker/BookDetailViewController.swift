@@ -21,6 +21,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var toReadButton: UIButton!
     @IBOutlet weak var readingButton: UIButton!
     @IBOutlet weak var finishedButton: UIButton!
+    @IBOutlet weak var rating: RatingControl!
     
     // MARK: - Variables/Constants
     var currentBook: GoogleBook!
@@ -172,11 +173,11 @@ class BookDetailViewController: UIViewController {
         if let category = currentBook.category?.rawValue {
             switch category {
                 case category where category == toRead:
-                    toReadButton.isHidden = true
+                    toReadButton.isEnabled = false
                 case category where category == reading:
-                    readingButton.isHidden = true
+                    readingButton.isEnabled = false
                 case category where category == finished:
-                    finishedButton.isHidden = true
+                    finishedButton.isEnabled = false
                 default:
                     return
             }

@@ -549,34 +549,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBq-4E-34q">
-                                <rect key="frame" x="43" y="280" width="288" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="077-0u-xTZ">
                                 <rect key="frame" x="16" y="252" width="343" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBq-4E-34q">
+                                <rect key="frame" x="147" y="280" width="80" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ywx-pt-ulN" customClass="RatingControl" customModule="BookTracker" customModuleProvider="target">
+                                <rect key="frame" x="61" y="475" width="252" height="44"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="ywx-pt-ulN" secondAttribute="trailing" constant="46" id="0eD-QG-Qea"/>
                             <constraint firstItem="qsJ-hb-3FL" firstAttribute="trailing" secondItem="i8g-lL-46G" secondAttribute="trailingMargin" id="37y-YU-yeW"/>
+                            <constraint firstItem="VBq-4E-34q" firstAttribute="leading" secondItem="i8g-lL-46G" secondAttribute="leadingMargin" constant="131" id="4TK-Y1-zYf"/>
                             <constraint firstItem="077-0u-xTZ" firstAttribute="top" secondItem="JPF-bW-EN3" secondAttribute="bottom" constant="8" id="AVC-AT-mfh"/>
                             <constraint firstItem="qsJ-hb-3FL" firstAttribute="top" secondItem="VBq-4E-34q" secondAttribute="bottom" constant="7.5" id="BEY-Xh-TGF"/>
+                            <constraint firstItem="FmN-6R-Irb" firstAttribute="top" secondItem="ywx-pt-ulN" secondAttribute="bottom" constant="27" id="KTF-Pd-FIv"/>
                             <constraint firstItem="AeT-Vi-dLn" firstAttribute="leading" secondItem="i8g-lL-46G" secondAttribute="leading" constant="118" id="MGh-Dt-mV7"/>
                             <constraint firstItem="qsJ-hb-3FL" firstAttribute="leading" secondItem="i8g-lL-46G" secondAttribute="leadingMargin" id="O3T-Ar-a95"/>
-                            <constraint firstItem="VBq-4E-34q" firstAttribute="leading" secondItem="i8g-lL-46G" secondAttribute="leadingMargin" constant="27" id="Oqc-2x-n2n"/>
                             <constraint firstItem="JPF-bW-EN3" firstAttribute="top" secondItem="AeT-Vi-dLn" secondAttribute="bottom" constant="8" symbolic="YES" id="SWU-ia-DR3"/>
                             <constraint firstItem="JPF-bW-EN3" firstAttribute="leading" secondItem="i8g-lL-46G" secondAttribute="leadingMargin" id="SvZ-IK-z30"/>
+                            <constraint firstItem="ywx-pt-ulN" firstAttribute="top" secondItem="qsJ-hb-3FL" secondAttribute="bottom" constant="8" id="TD0-N9-2WQ"/>
                             <constraint firstItem="077-0u-xTZ" firstAttribute="trailing" secondItem="i8g-lL-46G" secondAttribute="trailingMargin" id="VBm-Kr-6oi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VBq-4E-34q" secondAttribute="trailing" constant="28" id="Z7W-he-hIo"/>
                             <constraint firstItem="AeT-Vi-dLn" firstAttribute="top" secondItem="rn5-gy-U9u" secondAttribute="bottom" constant="8" id="bxk-25-6vC"/>
                             <constraint firstItem="JPF-bW-EN3" firstAttribute="trailing" secondItem="i8g-lL-46G" secondAttribute="trailingMargin" id="cLJ-GK-hzg"/>
+                            <constraint firstItem="ywx-pt-ulN" firstAttribute="leading" secondItem="i8g-lL-46G" secondAttribute="leadingMargin" constant="45" id="d9m-QD-5jF"/>
                             <constraint firstItem="FmN-6R-Irb" firstAttribute="leading" secondItem="i8g-lL-46G" secondAttribute="leadingMargin" constant="27" id="eyy-ba-Dcf"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="VBq-4E-34q" secondAttribute="trailing" id="lSV-Vq-vxn"/>
                             <constraint firstItem="8f8-dj-hTz" firstAttribute="top" secondItem="FmN-6R-Irb" secondAttribute="bottom" constant="8" id="rgm-If-Sxc"/>
                             <constraint firstAttribute="trailing" secondItem="AeT-Vi-dLn" secondAttribute="trailing" constant="132" id="s7z-xB-53U"/>
                             <constraint firstItem="FmN-6R-Irb" firstAttribute="top" secondItem="qsJ-hb-3FL" secondAttribute="bottom" constant="79" id="t1Y-pm-IKW"/>
@@ -590,6 +597,7 @@
                         <outlet property="bookImageView" destination="AeT-Vi-dLn" id="LuR-US-vS3"/>
                         <outlet property="finishedButton" destination="b0h-Oj-TMb" id="2Yl-lt-vre"/>
                         <outlet property="pageCountLabel" destination="VBq-4E-34q" id="PYs-8d-PVx"/>
+                        <outlet property="rating" destination="ywx-pt-ulN" id="poT-qc-E15"/>
                         <outlet property="readingButton" destination="2gG-TS-mjE" id="3Rb-sf-S4S"/>
                         <outlet property="summaryTextView" destination="qsJ-hb-3FL" id="vUT-ng-rhh"/>
                         <outlet property="titleLabel" destination="JPF-bW-EN3" id="500-9l-ZzO"/>
