@@ -21,7 +21,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet weak var toReadButton: UIButton!
     @IBOutlet weak var readingButton: UIButton!
     @IBOutlet weak var finishedButton: UIButton!
-    @IBOutlet weak var rating: RatingControl!
+    @IBOutlet weak var starRating: RatingControl!
     
     // MARK: - Variables/Constants
     var currentBook: GoogleBook!
@@ -48,6 +48,12 @@ class BookDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         summaryTextView.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let savedBook = fetchCurrentBook()
+        savedBook.setValue(starRating.rating, forKey: "rating")
     }
     
     // MARK: - Private Functions
@@ -108,9 +114,10 @@ class BookDetailViewController: UIViewController {
     
     func setCategory(_ category: String) {
         if currentBookIsSaved() {
-            updateBook(category: category)
+            updateBook(category: category, rating: starRating.rating)
             self.navigationController?.popViewController(animated: true)
         } else {
+            currentBook.rating = starRating.rating
             saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: category)!)
             self.navigationController?.popViewController(animated: true)
         }
@@ -125,9 +132,10 @@ class BookDetailViewController: UIViewController {
         return false
     }
     
-    func updateBook(category: String) {
+    func updateBook(category: String, rating: Int) {
         let savedBook = fetchCurrentBook()
         savedBook.setValue(category, forKey: "category")
+        savedBook.setValue(rating, forKey: "rating")
         
         do {
             try getCoreDataStack().context.save()
@@ -141,6 +149,7 @@ class BookDetailViewController: UIViewController {
         titleLabel.text = currentBook.title
         summaryTextView.text = currentBook.summary
         bookImageView.sd_setImage(with: URL(string: currentBook.cover!))
+        starRating.rating = currentBook.rating
         
         if let pageCount = currentBook.pageCount {
             pageCountLabel.text = "\(String(describing: pageCount)) pages"
@@ -160,6 +169,7 @@ class BookDetailViewController: UIViewController {
         savedBook.setValue(book.pageCount, forKey: "pageCount")
         savedBook.setValue(book.summary, forKey: "summary")
         savedBook.setValue(book.cover, forKey: "cover")
+        savedBook.setValue(book.rating, forKey: "rating")
         
         do {
             try getCoreDataStack().saveContext()

@@ -23,9 +23,9 @@
 		3021AA6B1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA6A1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift */; };
 		3072B3681F958F13001DB5A7 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072B3671F958F13001DB5A7 /* HexColor.swift */; };
 		30AA73E81FAD44AB00EF4034 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA73E71FAD44AB00EF4034 /* RatingControl.swift */; };
+		30AA73EB1FAD60B400EF4034 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA73E91FAD60B400EF4034 /* Book+CoreDataClass.swift */; };
+		30AA73EC1FAD60B400EF4034 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA73EA1FAD60B400EF4034 /* Book+CoreDataProperties.swift */; };
 		30DDF13A1F8EEE46007DAB31 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDF1391F8EEE46007DAB31 /* Alert.swift */; };
-		30DDF13D1F8EF709007DAB31 /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDF13B1F8EF709007DAB31 /* Book+CoreDataClass.swift */; };
-		30DDF13E1F8EF709007DAB31 /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DDF13C1F8EF709007DAB31 /* Book+CoreDataProperties.swift */; };
 		667C23B28A8F293A97009AF6 /* Pods_BookTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3ED7C0380F430E35BCC5C12 /* Pods_BookTracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +48,9 @@
 		3021AA6A1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBooksTableViewController.swift; sourceTree = "<group>"; };
 		3072B3671F958F13001DB5A7 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		30AA73E71FAD44AB00EF4034 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		30AA73E91FAD60B400EF4034 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataClass.swift"; sourceTree = "<group>"; };
+		30AA73EA1FAD60B400EF4034 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		30DDF1391F8EEE46007DAB31 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		30DDF13B1F8EF709007DAB31 /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "../Book+CoreDataClass.swift"; sourceTree = "<group>"; };
-		30DDF13C1F8EF709007DAB31 /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "../Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C84C2BA254E2D444BD54DC4F /* Pods-BookTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookTracker/Pods-BookTracker.release.xcconfig"; sourceTree = "<group>"; };
 		EBF34CE05087002E6DDA985D /* Pods-BookTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookTracker/Pods-BookTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		F3ED7C0380F430E35BCC5C12 /* Pods_BookTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,8 +104,8 @@
 		3021AA4E1F8A87A9008F62D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				30DDF13B1F8EF709007DAB31 /* Book+CoreDataClass.swift */,
-				30DDF13C1F8EF709007DAB31 /* Book+CoreDataProperties.swift */,
+				30AA73E91FAD60B400EF4034 /* Book+CoreDataClass.swift */,
+				30AA73EA1FAD60B400EF4034 /* Book+CoreDataProperties.swift */,
 				3021AA561F8A8A25008F62D6 /* GoogleBook.swift */,
 				30DDF1391F8EEE46007DAB31 /* Alert.swift */,
 				3072B3671F958F13001DB5A7 /* HexColor.swift */,
@@ -294,19 +294,19 @@
 			files = (
 				3021AA421F8A8789008F62D6 /* BookTracker.xcdatamodeld in Sources */,
 				3021AA3C1F8A8789008F62D6 /* ToReadTableViewController.swift in Sources */,
+				30AA73EC1FAD60B400EF4034 /* Book+CoreDataProperties.swift in Sources */,
 				3021AA6B1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift in Sources */,
 				3021AA691F8A8CE6008F62D6 /* BookDetailViewController.swift in Sources */,
 				30AA73E81FAD44AB00EF4034 /* RatingControl.swift in Sources */,
 				3021AA671F8A8CC4008F62D6 /* BookTableViewCell.swift in Sources */,
 				30DDF13A1F8EEE46007DAB31 /* Alert.swift in Sources */,
+				30AA73EB1FAD60B400EF4034 /* Book+CoreDataClass.swift in Sources */,
 				3021AA3A1F8A8789008F62D6 /* AppDelegate.swift in Sources */,
 				3072B3681F958F13001DB5A7 /* HexColor.swift in Sources */,
 				3021AA571F8A8A25008F62D6 /* GoogleBook.swift in Sources */,
 				3021AA551F8A8954008F62D6 /* GoogleBooksClient.swift in Sources */,
 				3021AA631F8A8C49008F62D6 /* ReadingTableViewController.swift in Sources */,
-				30DDF13D1F8EF709007DAB31 /* Book+CoreDataClass.swift in Sources */,
 				3021AA531F8A890E008F62D6 /* CoreDataStack.swift in Sources */,
-				30DDF13E1F8EF709007DAB31 /* Book+CoreDataProperties.swift in Sources */,
 				3021AA651F8A8C9E008F62D6 /* FinishedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

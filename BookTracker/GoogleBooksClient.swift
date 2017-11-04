@@ -82,7 +82,7 @@ class GoogleBooksClient: NSObject {
                     let summary = searchInfo["textSnippet"] as! String? {
                     
                     let cover = imageDict["smallThumbnail"]
-                    let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title)
+                    let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title, rating: 0)
                     books.append(bookInfo)
                 }
             }
