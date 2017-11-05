@@ -109,7 +109,6 @@ func getTopViewController() -> UIViewController {
                 viewController = top
             }
         }
-        
         return viewController
     }
 }
