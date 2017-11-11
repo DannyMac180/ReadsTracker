@@ -16,7 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let stack = CoreDataStack(modelName: "BookTracker")!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        var vc: UIViewController
+        
+        UserDefaults.standard.register(defaults: ["isFirstUse": true])
+        
+        if UserDefaults.standard.bool(forKey: "isFirstUse") == true {
+            vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingViewController")
+        } else {
+            vc = storyBoard.instantiateInitialViewController()!
+        }
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 

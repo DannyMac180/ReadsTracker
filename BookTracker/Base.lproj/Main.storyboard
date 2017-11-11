@@ -27,6 +27,110 @@
             </objects>
             <point key="canvasLocation" x="-850" y="-868"/>
         </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="xDJ-Xb-WVl">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="3Az-gr-s5w" customClass="OnboardingViewController" customModule="BookTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tx2-yv-yyd"/>
+                        <viewControllerLayoutGuide type="bottom" id="eUk-Ad-oSB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pvd-GT-hxV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to ReadsTracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkC-OB-jx9">
+                                <rect key="frame" x="51.5" y="44" width="265.5" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="opg-Yg-mPl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookTracker-AppIcon-LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-aK-nND">
+                                <rect key="frame" x="115" y="113" width="136" height="136"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Uim-wZ-YbA">
+                                <rect key="frame" x="259" y="323" width="32" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="M9u-1i-76z"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To search books use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wM-DL-d4X">
+                                <rect key="frame" x="72" y="328" width="179" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="gcp-bX-ALy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a book to add it to your list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCU-Bb-uZj">
+                                <rect key="frame" x="37" y="405" width="294" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="VeH-BU-vzQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left on a book to delete it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Oc-Aj-F51">
+                                <rect key="frame" x="49" y="483" width="270" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Hwb-dn-rjW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.07795933845194937" green="0.302398357760152" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-0l-vfn">
+                                <rect key="frame" x="97" y="577" width="173" height="43"/>
+                                <color key="backgroundColor" red="0.074903346937733706" green="0.30835810671022446" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="1Z5-2b-881"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Let's get started!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getStartedButton:" destination="3Az-gr-s5w" eventType="touchUpInside" id="8W6-VD-2tk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Oc-Aj-F51" firstAttribute="centerX" secondItem="y6p-0l-vfn" secondAttribute="centerX" id="3gn-nq-CBv"/>
+                            <constraint firstItem="eCU-Bb-uZj" firstAttribute="top" secondItem="Uim-wZ-YbA" secondAttribute="bottom" constant="51" id="9co-pp-Qsr"/>
+                            <constraint firstItem="LkC-OB-jx9" firstAttribute="top" secondItem="Tx2-yv-yyd" secondAttribute="bottom" constant="24" id="DYF-EV-ES7"/>
+                            <constraint firstItem="LkC-OB-jx9" firstAttribute="centerX" secondItem="eCU-Bb-uZj" secondAttribute="centerX" id="EGR-Re-5AE"/>
+                            <constraint firstItem="8Oc-Aj-F51" firstAttribute="top" secondItem="eCU-Bb-uZj" secondAttribute="bottom" constant="57" id="EjA-eZ-nSY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uim-wZ-YbA" secondAttribute="trailing" constant="68" id="HfU-Jb-MZz"/>
+                            <constraint firstItem="eCU-Bb-uZj" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="21" id="Jiz-As-vim"/>
+                            <constraint firstItem="gaZ-aK-nND" firstAttribute="trailing" secondItem="6wM-DL-d4X" secondAttribute="trailing" id="MR9-1y-0vE"/>
+                            <constraint firstItem="eUk-Ad-oSB" firstAttribute="top" secondItem="y6p-0l-vfn" secondAttribute="bottom" constant="47" id="TKP-r8-rt4"/>
+                            <constraint firstItem="y6p-0l-vfn" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="81" id="TYv-4f-pQS"/>
+                            <constraint firstItem="eCU-Bb-uZj" firstAttribute="centerX" secondItem="8Oc-Aj-F51" secondAttribute="centerX" id="V4y-sR-2ox"/>
+                            <constraint firstItem="gaZ-aK-nND" firstAttribute="top" secondItem="LkC-OB-jx9" secondAttribute="bottom" constant="40" id="V86-w2-gr6"/>
+                            <constraint firstItem="6wM-DL-d4X" firstAttribute="top" secondItem="gaZ-aK-nND" secondAttribute="bottom" constant="79" id="cI9-kV-Y4W"/>
+                            <constraint firstItem="y6p-0l-vfn" firstAttribute="top" secondItem="8Oc-Aj-F51" secondAttribute="bottom" constant="73" id="n0I-cw-iSi"/>
+                            <constraint firstItem="6wM-DL-d4X" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="56" id="oW4-zx-P4L"/>
+                            <constraint firstItem="8Oc-Aj-F51" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="33" id="qNK-Yr-8Lp"/>
+                            <constraint firstItem="6wM-DL-d4X" firstAttribute="centerY" secondItem="Uim-wZ-YbA" secondAttribute="centerY" id="sDg-O2-y7P"/>
+                            <constraint firstItem="Uim-wZ-YbA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6wM-DL-d4X" secondAttribute="trailing" symbolic="YES" id="vFR-Fu-zGi"/>
+                            <constraint firstItem="eCU-Bb-uZj" firstAttribute="top" secondItem="6wM-DL-d4X" secondAttribute="bottom" constant="56" id="w9M-Zn-Yh4"/>
+                            <constraint firstItem="gaZ-aK-nND" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="99" id="wfv-Py-xx3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="FDY-Zq-oF8" kind="show" identifier="onboard" id="n4q-HM-daT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HA-fa-4LI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2895.1999999999998" y="-184.85757121439281"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Mrt-M7-0bx">
             <objects>
@@ -610,10 +714,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BookTracker-AppIcon-LaunchScreen" width="200" height="200"/>
         <image name="Finished-Button" width="64" height="64"/>
         <image name="Finished-Tab" width="32" height="32"/>
         <image name="Reading-Button" width="64" height="64"/>
         <image name="Reading-Tab" width="32" height="32"/>
+        <image name="Search" width="30" height="30"/>
         <image name="ToRead-Button" width="64" height="64"/>
         <image name="ToRead-Tab" width="32" height="32"/>
     </resources>
