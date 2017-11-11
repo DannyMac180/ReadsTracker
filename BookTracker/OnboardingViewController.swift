@@ -20,7 +20,11 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction func getStartedAction(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "isFirstUse")
-        performSegue(withIdentifier: "onboard", sender: self)
+        if UserDefaults.standard.bool(forKey: "isFirstUse") == true {
+            UserDefaults.standard.set(false, forKey: "isFirstUse")
+            performSegue(withIdentifier: "onboard", sender: self)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
