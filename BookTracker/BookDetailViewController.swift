@@ -52,8 +52,13 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        let savedBook = fetchCurrentBook()
-        savedBook.setValue(starRating.rating, forKey: "rating")
+        
+        let savedBooksArray = fetchCurrentBook()
+        
+        if !savedBooksArray.isEmpty {
+            let savedBook = savedBooksArray[0]
+            savedBook.setValue(starRating.rating, forKey: "rating")
+        }
     }
     
     // MARK: - Private Functions
@@ -75,9 +80,7 @@ class BookDetailViewController: UIViewController {
         return appDelegate.stack
     }
     
-    func fetchCurrentBook() -> Book {
-        
-        do {
+     func fetchCurrentBook() -> [Book] {
             let managedObjectContext = getCoreDataStack().context
             
             let currentBookFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
@@ -86,13 +89,11 @@ class BookDetailViewController: UIViewController {
             
             do {
                 let savedBookArray = try managedObjectContext.fetch(currentBookFetch) as! [Book]
-                return savedBookArray[0]
-                
+                return savedBookArray
             } catch {
-                fatalError("Failed to fetch photos: \(error)")
+                fatalError("Failed to fetch book: \(error)")
             }
         }
-    }
     
     func loadSavedBooks() -> [Book]? {
         
@@ -133,14 +134,18 @@ class BookDetailViewController: UIViewController {
     }
     
     func updateBook(category: String, rating: Int) {
-        let savedBook = fetchCurrentBook()
-        savedBook.setValue(category, forKey: "category")
-        savedBook.setValue(rating, forKey: "rating")
+        let savedBooksArray = fetchCurrentBook()
+        
+        if !savedBooksArray.isEmpty {
+            let savedBook = savedBooksArray[0]
+            savedBook.setValue(category, forKey: "category")
+            savedBook.setValue(rating, forKey: "rating")
         
         do {
             try getCoreDataStack().context.save()
         } catch {
             Alert.showbasic(title: "OK", message: "Couldn't save new category", vc: self)
+            }
         }
     }
     
