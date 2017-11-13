@@ -189,7 +189,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Gbe-XF-wIm" secondAttribute="trailing" constant="25" id="w9V-r0-xqe"/>
+                                                        <constraint firstItem="Gbe-XF-wIm" firstAttribute="top" secondItem="7rf-wt-0O2" secondAttribute="top" constant="8" id="gtp-wk-6Jq"/>
+                                                        <constraint firstItem="Gbe-XF-wIm" firstAttribute="leading" secondItem="7rf-wt-0O2" secondAttribute="leading" constant="86" id="kL4-ni-hUe"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Gbe-XF-wIm" secondAttribute="trailing" constant="25" id="sK2-Wd-2Fn"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ed-Kz-RjI">
@@ -217,11 +219,8 @@
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="Mi9-ny-kg8" firstAttribute="leading" secondItem="7mI-S9-9K6" secondAttribute="leading" constant="94" id="55v-L6-NGH"/>
-                                            <constraint firstItem="Gbe-XF-wIm" firstAttribute="leading" secondItem="7mI-S9-9K6" secondAttribute="leading" constant="94" id="M8I-LX-H4a"/>
                                             <constraint firstAttribute="bottom" secondItem="Mi9-ny-kg8" secondAttribute="bottom" constant="25" id="Tqx-Zy-NTO"/>
                                             <constraint firstItem="Mi9-ny-kg8" firstAttribute="top" secondItem="7mI-S9-9K6" secondAttribute="top" constant="44" id="ar4-Qe-3f3"/>
-                                            <constraint firstItem="Gbe-XF-wIm" firstAttribute="top" secondItem="7mI-S9-9K6" secondAttribute="top" constant="16" id="ldY-nd-Ehu"/>
-                                            <constraint firstAttribute="bottom" secondItem="Gbe-XF-wIm" secondAttribute="bottom" constant="60" id="wSP-gU-OMr"/>
                                             <constraint firstAttribute="trailing" secondItem="Mi9-ny-kg8" secondAttribute="trailing" constant="8" id="yP1-QE-h23"/>
                                         </constraints>
                                         <connections>
