@@ -150,17 +150,28 @@ class BookDetailViewController: UIViewController {
     }
     
     func setUpViews() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper")!)
         authorLabel.text = "by \(currentBook.authors[0])"
         titleLabel.text = currentBook.title
         summaryTextView.text = currentBook.summary
         bookImageView.sd_setImage(with: URL(string: currentBook.cover!))
         starRating.rating = currentBook.rating
+        summaryTextView.backgroundColor = UIColor.clear
         
         if let pageCount = currentBook.pageCount {
             pageCountLabel.text = "\(String(describing: pageCount)) pages"
         } else {
             pageCountLabel.text = "Page Count N/A"
         }
+        
+        setUpFonts()
+    }
+    
+    func setUpFonts() {
+        titleLabel.font = UIFont(name: "GillSans", size: 25.0)
+        authorLabel.font = UIFont(name: "GillSans", size: 23.0)
+        pageCountLabel.font = UIFont(name: "GillSans", size: 20.0)
+        summaryTextView.font = UIFont(name: "HelveticaNeue-Bold", size: 18.0)
     }
     
     func saveCoreData(book: GoogleBook, category: GoogleBook.Category) {

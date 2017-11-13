@@ -18,13 +18,15 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func updateUI() {
-        contentView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
+        self.backgroundColor = UIColor.clear
         backGroundCardView.backgroundColor = UIColor.white
         backGroundCardView.layer.cornerRadius = 3.0
         backGroundCardView.layer.masksToBounds = false
         backGroundCardView.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
         backGroundCardView.layer.shadowOffset = CGSize(width: 0, height: 0)
         backGroundCardView.layer.shadowOpacity = 0.8
+        titleLabel.font = UIFont(name: "GillSans", size: 23.0)
+        authorLabel.font = UIFont(name: "GillSans", size: 20.0)
     }
     
     override func awakeFromNib() {

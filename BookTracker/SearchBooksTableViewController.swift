@@ -27,8 +27,8 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        tableView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
         self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
+        tableView.backgroundView = UIImageView(image: UIImage(named: "Bookshelf Background"))
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false

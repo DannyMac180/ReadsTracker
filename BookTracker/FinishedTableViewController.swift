@@ -26,7 +26,7 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
         // Do any additional setup after loading the view, typically from a nib.
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        tableView.backgroundColor = HexColor.hexStringToUIColor(hex: "172A3A")
+        tableView.backgroundView = UIImageView(image: UIImage(named: "Bookshelf Background"))
         self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
     }
     
