@@ -205,7 +205,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3021AA311F8A8789008F62D6 /* Build configuration list for PBXProject "BookTracker" */;
+			buildConfigurationList = 3021AA311F8A8789008F62D6 /* Build configuration list for PBXProject "ReadsTracker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -469,7 +469,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3021AA311F8A8789008F62D6 /* Build configuration list for PBXProject "BookTracker" */ = {
+		3021AA311F8A8789008F62D6 /* Build configuration list for PBXProject "ReadsTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3021AA491F8A8789008F62D6 /* Debug */,

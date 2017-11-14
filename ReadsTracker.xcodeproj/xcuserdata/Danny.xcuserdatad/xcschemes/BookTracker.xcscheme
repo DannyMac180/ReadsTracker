@@ -17,7 +17,7 @@
                BlueprintIdentifier = "3021AA351F8A8789008F62D6"
                BuildableName = "BookTracker.app"
                BlueprintName = "BookTracker"
-               ReferencedContainer = "container:BookTracker.xcodeproj">
+               ReferencedContainer = "container:ReadsTracker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -35,7 +36,7 @@
             BlueprintIdentifier = "3021AA351F8A8789008F62D6"
             BuildableName = "BookTracker.app"
             BlueprintName = "BookTracker"
-            ReferencedContainer = "container:BookTracker.xcodeproj">
+            ReferencedContainer = "container:ReadsTracker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -45,6 +46,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -58,7 +60,7 @@
             BlueprintIdentifier = "3021AA351F8A8789008F62D6"
             BuildableName = "BookTracker.app"
             BlueprintName = "BookTracker"
-            ReferencedContainer = "container:BookTracker.xcodeproj">
+            ReferencedContainer = "container:ReadsTracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +79,7 @@
             BlueprintIdentifier = "3021AA351F8A8789008F62D6"
             BuildableName = "BookTracker.app"
             BlueprintName = "BookTracker"
-            ReferencedContainer = "container:BookTracker.xcodeproj">
+            ReferencedContainer = "container:ReadsTracker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
