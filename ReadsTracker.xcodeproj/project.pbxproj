@@ -73,7 +73,7 @@
 		3021AA2D1F8A8789008F62D6 = {
 			isa = PBXGroup;
 			children = (
-				3021AA381F8A8789008F62D6 /* BookTracker */,
+				3021AA381F8A8789008F62D6 /* ReadsTracker */,
 				3021AA371F8A8789008F62D6 /* Products */,
 				4B8F47EFFCAC4DEA4773D6B7 /* Pods */,
 				FFBF7BE4E26ECFB1BAE36AAE /* Frameworks */,
@@ -88,7 +88,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3021AA381F8A8789008F62D6 /* BookTracker */ = {
+		3021AA381F8A8789008F62D6 /* ReadsTracker */ = {
 			isa = PBXGroup;
 			children = (
 				3021AA391F8A8789008F62D6 /* AppDelegate.swift */,
@@ -100,6 +100,7 @@
 				3021AA431F8A8789008F62D6 /* Assets.xcassets */,
 				3021AA481F8A8789008F62D6 /* Info.plist */,
 			);
+			name = ReadsTracker;
 			path = BookTracker;
 			sourceTree = "<group>";
 		};
@@ -438,10 +439,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = BookTracker/Info.plist;
+				INFOPLIST_FILE = ReadsTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.BookTracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.ReadsTracker;
+				PRODUCT_NAME = BookTracker;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -456,10 +457,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = BookTracker/Info.plist;
+				INFOPLIST_FILE = ReadsTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.BookTracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.ReadsTracker;
+				PRODUCT_NAME = BookTracker;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
