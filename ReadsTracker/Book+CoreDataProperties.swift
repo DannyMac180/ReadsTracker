@@ -1,6 +1,6 @@
 //
 //  Book+CoreDataProperties.swift
-//  ReadsTracker
+//  BookTracker
 //
 //  Created by Daniel McAteer on 11/3/17.
 //  Copyright © 2017 Daniel McAteer. All rights reserved.

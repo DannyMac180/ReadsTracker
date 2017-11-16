@@ -100,8 +100,7 @@
 				3021AA431F8A8789008F62D6 /* Assets.xcassets */,
 				3021AA481F8A8789008F62D6 /* Info.plist */,
 			);
-			name = ReadsTracker;
-			path = BookTracker;
+			path = ReadsTracker;
 			sourceTree = "<group>";
 		};
 		3021AA4E1F8A87A9008F62D6 /* Models */ = {
@@ -441,7 +440,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReadsTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.ReadsTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.BookTracker;
 				PRODUCT_NAME = BookTracker;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -459,7 +458,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReadsTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.ReadsTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = org.theartofsmart.BookTracker;
 				PRODUCT_NAME = BookTracker;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

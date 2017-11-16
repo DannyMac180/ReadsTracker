@@ -1,6 +1,6 @@
 //
 //  GoogleBooksClient.swift
-//  ReadsTracker
+//  BookTracker
 //
 //  Created by Daniel McAteer on 10/8/17.
 //  Copyright © 2017 Daniel McAteer. All rights reserved.

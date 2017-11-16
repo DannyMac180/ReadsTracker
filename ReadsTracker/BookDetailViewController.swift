@@ -1,6 +1,6 @@
 //
 //  BookDetailViewController.swift
-//  ReadsTracker
+//  BookTracker
 //
 //  Created by Daniel McAteer on 10/8/17.
 //  Copyright © 2017 Daniel McAteer. All rights reserved.
@@ -73,6 +73,10 @@ class BookDetailViewController: UIViewController {
     
     @IBAction func finishedAction(_ sender: Any) {
         setCategory(finished)
+    }
+    
+    func shoppingTapped() {
+        // ToDo: Add functionality to display book in Amazon
     }
     
     func getCoreDataStack() -> CoreDataStack {
@@ -150,6 +154,7 @@ class BookDetailViewController: UIViewController {
     }
     
     func setUpViews() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "shoppingCart"), style: .plain, target: self, action: #selector(shoppingTapped))
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper")!)
         authorLabel.text = "by \(currentBook.authors[0])"
         titleLabel.text = currentBook.title

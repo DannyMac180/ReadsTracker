@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ReadsTracker
+//  BookTracker
 //
 //  Created by Daniel McAteer on 10/8/17.
 //  Copyright © 2017 Daniel McAteer. All rights reserved.
@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let stack = CoreDataStack(modelName: "ReadsTracker")!
+    let stack = CoreDataStack(modelName: "BookTracker")!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "ReadsTracker")
+        let container = NSPersistentContainer(name: "BookTracker")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
