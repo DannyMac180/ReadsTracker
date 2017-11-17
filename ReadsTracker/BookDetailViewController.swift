@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import SDWebImage
+import WebKit
 
-class BookDetailViewController: UIViewController {
+class BookDetailViewController: UIViewController, WKNavigationDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var bookImageView: UIImageView!
@@ -29,6 +30,7 @@ class BookDetailViewController: UIViewController {
     var toRead = "toRead"
     var reading = "reading"
     var finished = "finished"
+    var webView: WKWebView!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -76,7 +78,15 @@ class BookDetailViewController: UIViewController {
     }
     
     func shoppingTapped() {
-        // ToDo: Add functionality to display book in Amazon
+        // ToDo: Implement navigation within the webview
+        let searchString = currentBook.title.replacingOccurrences(of: " ", with: "+")
+        let url = URL(string: "https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=\(searchString)")
+        let request = URLRequest(url: url!)
+        
+        webView = WKWebView(frame: self.view.bounds)
+        webView.navigationDelegate = self
+        webView.load(request)
+        self.view.addSubview(webView)
     }
     
     func getCoreDataStack() -> CoreDataStack {
