@@ -35,6 +35,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         searchController.searchBar.placeholder = "Search by title or author"
+        searchController.searchBar.autocorrectionType = .yes
     }
     
     override func viewWillAppear(_ animated: Bool) {
