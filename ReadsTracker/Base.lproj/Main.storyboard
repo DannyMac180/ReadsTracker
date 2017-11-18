@@ -709,6 +709,7 @@
                         <outlet property="summaryTextView" destination="qsJ-hb-3FL" id="vUT-ng-rhh"/>
                         <outlet property="titleLabel" destination="JPF-bW-EN3" id="500-9l-ZzO"/>
                         <outlet property="toReadButton" destination="4iv-am-jYj" id="4Zu-G9-g4f"/>
+                        <segue destination="oi0-8j-W1Z" kind="presentation" identifier="shopping" id="eeU-N4-3q7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAs-7H-tmb" userLabel="First Responder" sceneMemberID="firstResponder"/>

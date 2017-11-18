@@ -30,7 +30,6 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     var toRead = "toRead"
     var reading = "reading"
     var finished = "finished"
-    var webView: WKWebView!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -78,15 +77,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     }
     
     func shoppingTapped() {
-        // ToDo: Implement navigation within the webview
-        let searchString = currentBook.title.replacingOccurrences(of: " ", with: "+")
-        let url = URL(string: "https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=\(searchString)")
-        let request = URLRequest(url: url!)
-        
-        webView = WKWebView(frame: self.view.bounds)
-        webView.navigationDelegate = self
-        webView.load(request)
-        self.view.addSubview(webView)
+        performSegue(withIdentifier: "shopping", sender: self)
     }
     
     func getCoreDataStack() -> CoreDataStack {
