@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class WebViewViewController: UIViewController, UITextFieldDelegate, WKNavigationDelegate {
+class WebViewViewController: UIViewController, WKNavigationDelegate {
     
     // MARK: - Constants and Variables
     var webView: WKWebView!
@@ -18,17 +18,15 @@ class WebViewViewController: UIViewController, UITextFieldDelegate, WKNavigation
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add webView to main view
-        view.addSubview(webView)
+        // Initialize webView
+        webView = WKWebView(frame: self.view.bounds)
+        webView.navigationDelegate = self
         
-        // Add constraints
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        let height = NSLayoutConstraint(item: webView, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1, constant: 0)
-        let width = NSLayoutConstraint(item: webView, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: 0)
-        view.addConstraints([height, width])
+        // Add webView to main view
+        self.view.addSubview(webView)
         
         // Load desired URL
-        let url = URL(string: "http://www.appcoda.com")
+        let url = URL(string: "http://www.google.com")
         let request = URLRequest(url: url!)
         webView.load(request)
     }

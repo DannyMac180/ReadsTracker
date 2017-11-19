@@ -716,10 +716,10 @@
             </objects>
             <point key="canvasLocation" x="1064.8" y="-635.53223388305855"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View View Controller-->
         <scene sceneID="hic-Q8-imO">
             <objects>
-                <viewController id="oi0-8j-W1Z" sceneMemberID="viewController">
+                <viewController id="oi0-8j-W1Z" customClass="WebViewViewController" customModule="BookTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PJs-k3-8Tk"/>
                         <viewControllerLayoutGuide type="bottom" id="Ypt-da-rpy"/>
