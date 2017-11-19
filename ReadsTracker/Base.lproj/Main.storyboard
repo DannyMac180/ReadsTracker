@@ -709,7 +709,7 @@
                         <outlet property="summaryTextView" destination="qsJ-hb-3FL" id="vUT-ng-rhh"/>
                         <outlet property="titleLabel" destination="JPF-bW-EN3" id="500-9l-ZzO"/>
                         <outlet property="toReadButton" destination="4iv-am-jYj" id="4Zu-G9-g4f"/>
-                        <segue destination="oi0-8j-W1Z" kind="presentation" identifier="shopping" id="eeU-N4-3q7"/>
+                        <segue destination="oi0-8j-W1Z" kind="push" identifier="shopping" id="KZu-gW-YvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAs-7H-tmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -725,17 +725,36 @@
                         <viewControllerLayoutGuide type="bottom" id="Ypt-da-rpy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q20-zr-7pg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cw1-dg-XEa">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="i39-ga-K7j">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="u0p-5v-gWe">
+                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zMg-Iu-SiV">
+                                    <rect key="frame" x="-58" y="-15" width="195" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="195" id="Iux-iT-Ko9"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="zMg-Iu-SiV" firstAttribute="leading" secondItem="u0p-5v-gWe" secondAttribute="leading" constant="-58" id="REu-8c-J3z"/>
+                                <constraint firstItem="zMg-Iu-SiV" firstAttribute="centerY" secondItem="u0p-5v-gWe" secondAttribute="centerY" id="nFy-LP-oVY"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barView" destination="u0p-5v-gWe" id="meg-Y5-Amb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYc-oY-J2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
