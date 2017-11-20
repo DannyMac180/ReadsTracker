@@ -9,12 +9,30 @@
 import UIKit
 import WebKit
 
-class WebViewViewController: UIViewController, WKNavigationDelegate {
+class WebViewViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate {
     
     // MARK: - Constants and Variables
     var webView: WKWebView
     @IBOutlet weak var barView: UIView!
     @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var webViewNavigationBar: UIToolbar!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwardButton: UIBarButtonItem!
+    @IBOutlet weak var reloadButton: UIBarButtonItem!
+    
+    // MARK: - Actions
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        webView.goBack()
+    }
+    
+    @IBAction func forward(_ sender: UIBarButtonItem) {
+        webView.goForward()
+    }
+    
+    @IBAction func reload(_ sender: Any) {
+        let request = URLRequest(url: webView.url!)
+        webView.load(request)
+    }
     
     // MARK: - Intializers
     required init?(coder aDecoder: NSCoder) {
@@ -29,6 +47,9 @@ class WebViewViewController: UIViewController, WKNavigationDelegate {
         // Add barView to view
         view.addSubview(barView)
         
+        // Add webViewNavigationBar to view
+        view.addSubview(webViewNavigationBar)
+        
         // Add webView to main view
         view.addSubview(webView)
         
@@ -36,20 +57,45 @@ class WebViewViewController: UIViewController, WKNavigationDelegate {
         webView.translatesAutoresizingMaskIntoConstraints = false
         let webViewTop = NSLayoutConstraint(item: webView, attribute: .top, relatedBy: .equal, toItem: barView, attribute: .bottom, multiplier: 1, constant: 0)
         let webViewWidth = NSLayoutConstraint(item: webView, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: 0)
-        let webViewBottm = NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let webViewBottm = NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: webViewNavigationBar, attribute: .top, multiplier: 1, constant: 0)
         view.addConstraints([webViewTop, webViewWidth, webViewBottm])
         
+        // Add observer
+        webView.addObserver(self, forKeyPath: "loading", options: .new, context: nil)
+        
         // Load desired URL
-        let url = URL(string: "http://www.appcoda.com")
+        let urlString = prependUrl(url: "www.appcoda.com")
+        let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         webView.load(request)
+        
+        // Disable nav buttons on loading
+        backButton.isEnabled = false
+        forwardButton.isEnabled = false
+    }
+    
+    // MARK: - Private Functions
+    private func prependUrl(url: String) -> String {
+        if !url.hasPrefix("https://") && !url.hasPrefix("http://") {
+            let prependedUrl = "https://\(url)"
+            return prependedUrl
+        } else {
+            return url
+        }
     }
     
     // MARK: - Delegate Methods
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         urlTextField.resignFirstResponder()
-        webView.load(URLRequest(url: URL(string: urlTextField.text!)!))
+        let prependedUrl = prependUrl(url: textField.text!)
+        webView.load(URLRequest(url: URL(string: prependedUrl)!))
         return false
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (keyPath == "loading") {
+            backButton.isEnabled = webView.canGoBack
+            forwardButton.isEnabled = webView.canGoForward
+        }
+    }
 }

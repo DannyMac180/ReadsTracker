@@ -730,22 +730,65 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1N8-lu-co2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a URL here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkC-B4-T4N">
+                                        <rect key="frame" x="21" y="8" width="332" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97636479139328003" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hkC-B4-T4N" secondAttribute="trailing" constant="22" id="PK7-dk-mHE"/>
+                                    <constraint firstAttribute="bottom" secondItem="hkC-B4-T4N" secondAttribute="bottom" constant="12" id="TGO-uB-pfJ"/>
+                                    <constraint firstItem="hkC-B4-T4N" firstAttribute="leading" secondItem="1N8-lu-co2" secondAttribute="leading" constant="21" id="tLM-rm-MN9"/>
                                     <constraint firstAttribute="height" constant="50" id="uw5-Qe-E0i"/>
+                                    <constraint firstItem="hkC-B4-T4N" firstAttribute="top" secondItem="1N8-lu-co2" secondAttribute="top" constant="8" id="zUR-DJ-Q4Y"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWT-9k-4Tb">
+                                <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" image="backArrow" id="TlW-Ek-e15">
+                                        <connections>
+                                            <action selector="back:" destination="oi0-8j-W1Z" id="0wL-V9-xki"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="GfI-vM-oKI"/>
+                                    <barButtonItem title="Item" image="forwardArrow" id="90z-69-SFT">
+                                        <connections>
+                                            <action selector="forward:" destination="oi0-8j-W1Z" id="vOr-jF-Suq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vqr-bk-ffz"/>
+                                    <barButtonItem systemItem="refresh" id="TU0-El-lCB">
+                                        <connections>
+                                            <action selector="reload:" destination="oi0-8j-W1Z" id="pIL-bk-gxo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1N8-lu-co2" firstAttribute="leading" secondItem="q20-zr-7pg" secondAttribute="leading" id="0L4-UZ-sIG"/>
+                            <constraint firstItem="VWT-9k-4Tb" firstAttribute="leading" secondItem="q20-zr-7pg" secondAttribute="leading" id="Akw-7C-fJ9"/>
                             <constraint firstItem="1N8-lu-co2" firstAttribute="top" secondItem="PJs-k3-8Tk" secondAttribute="bottom" id="Okw-Xl-nZs"/>
                             <constraint firstAttribute="trailing" secondItem="1N8-lu-co2" secondAttribute="trailing" id="e78-Hf-mjv"/>
+                            <constraint firstAttribute="trailing" secondItem="VWT-9k-4Tb" secondAttribute="trailing" id="lLB-Ir-8V9"/>
+                            <constraint firstItem="Ypt-da-rpy" firstAttribute="top" secondItem="VWT-9k-4Tb" secondAttribute="bottom" id="pRp-Rl-uhV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shop" id="i39-ga-K7j"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="TlW-Ek-e15" id="r1x-6T-hCB"/>
                         <outlet property="barView" destination="1N8-lu-co2" id="VzB-vg-8gw"/>
+                        <outlet property="forwardButton" destination="90z-69-SFT" id="30t-uk-dvo"/>
+                        <outlet property="reloadButton" destination="TU0-El-lCB" id="btq-Lt-opm"/>
+                        <outlet property="urlTextField" destination="hkC-B4-T4N" id="n7S-nm-QxI"/>
+                        <outlet property="webViewNavigationBar" destination="VWT-9k-4Tb" id="qtY-Td-nO4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KYc-oY-J2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -763,6 +806,8 @@
         <image name="Search" width="30" height="30"/>
         <image name="ToRead-Button" width="64" height="64"/>
         <image name="ToRead-Tab" width="32" height="32"/>
+        <image name="backArrow" width="30" height="30"/>
+        <image name="forwardArrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="maP-SL-4DO"/>
