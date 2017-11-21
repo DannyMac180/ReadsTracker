@@ -10,7 +10,6 @@ import UIKit
 import WebKit
 
 // Todo: Set intial web page to the web page for the book using amazon affiliate marketing
-// Todo: Hide tabBar upon load of webView and then display again after webView is gone
 
 class WebViewViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate {
     
@@ -41,6 +40,8 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
     required init?(coder aDecoder: NSCoder) {
         self.webView = WKWebView(frame: .zero)
         super.init(coder: aDecoder)
+        
+        self.webView.navigationDelegate = self
     }
     
     // MARK: - Lifecycle Methods
@@ -103,5 +104,9 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
             backButton.isEnabled = webView.canGoBack
             forwardButton.isEnabled = webView.canGoForward
         }
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        Alert.showbasic(title: "Error", message: error.localizedDescription, vc: self)
     }
 }
