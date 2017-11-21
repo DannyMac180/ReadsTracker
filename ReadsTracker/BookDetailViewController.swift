@@ -43,6 +43,8 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
             savedBooks = books
         }
         
+        self.tabBarController?.tabBar.isHidden = false
+        
         hideCurrentCategory()
     }
     

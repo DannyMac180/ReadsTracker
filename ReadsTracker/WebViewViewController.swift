@@ -9,6 +9,9 @@
 import UIKit
 import WebKit
 
+// Todo: Set intial web page to the web page for the book using amazon affiliate marketing
+// Todo: Hide tabBar upon load of webView and then display again after webView is gone
+
 class WebViewViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate {
     
     // MARK: - Constants and Variables
@@ -43,6 +46,9 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Hide tabBar
+        self.tabBarController?.tabBar.isHidden = true
         
         // Add barView to view
         view.addSubview(barView)
