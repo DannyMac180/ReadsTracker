@@ -772,15 +772,21 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kRs-D7-WSS">
+                                <rect key="frame" x="0.0" y="48" width="375" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1N8-lu-co2" firstAttribute="leading" secondItem="q20-zr-7pg" secondAttribute="leading" id="0L4-UZ-sIG"/>
                             <constraint firstItem="VWT-9k-4Tb" firstAttribute="leading" secondItem="q20-zr-7pg" secondAttribute="leading" id="Akw-7C-fJ9"/>
                             <constraint firstItem="1N8-lu-co2" firstAttribute="top" secondItem="PJs-k3-8Tk" secondAttribute="bottom" id="Okw-Xl-nZs"/>
+                            <constraint firstItem="kRs-D7-WSS" firstAttribute="top" secondItem="PJs-k3-8Tk" secondAttribute="bottom" constant="48" id="T94-8j-vHj"/>
                             <constraint firstAttribute="trailing" secondItem="1N8-lu-co2" secondAttribute="trailing" id="e78-Hf-mjv"/>
+                            <constraint firstAttribute="trailing" secondItem="kRs-D7-WSS" secondAttribute="trailing" id="kB7-Yc-ica"/>
                             <constraint firstAttribute="trailing" secondItem="VWT-9k-4Tb" secondAttribute="trailing" id="lLB-Ir-8V9"/>
                             <constraint firstItem="Ypt-da-rpy" firstAttribute="top" secondItem="VWT-9k-4Tb" secondAttribute="bottom" id="pRp-Rl-uhV"/>
+                            <constraint firstItem="kRs-D7-WSS" firstAttribute="leading" secondItem="q20-zr-7pg" secondAttribute="leading" id="qhf-KE-rEv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Shop" id="i39-ga-K7j"/>
@@ -789,6 +795,7 @@
                         <outlet property="backButton" destination="TlW-Ek-e15" id="r1x-6T-hCB"/>
                         <outlet property="barView" destination="1N8-lu-co2" id="VzB-vg-8gw"/>
                         <outlet property="forwardButton" destination="90z-69-SFT" id="30t-uk-dvo"/>
+                        <outlet property="progressView" destination="kRs-D7-WSS" id="zV6-Mn-yuD"/>
                         <outlet property="reloadButton" destination="TU0-El-lCB" id="btq-Lt-opm"/>
                         <outlet property="urlTextField" destination="hkC-B4-T4N" id="n7S-nm-QxI"/>
                         <outlet property="webViewNavigationBar" destination="VWT-9k-4Tb" id="qtY-Td-nO4"/>

@@ -21,6 +21,7 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
+    @IBOutlet weak var progressView: UIProgressView!
     
     // MARK: - Actions
     @IBAction func back(_ sender: UIBarButtonItem) {
@@ -57,6 +58,9 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
         // Add webViewNavigationBar to view
         view.addSubview(webViewNavigationBar)
         
+        // Add progressView to view
+        view.addSubview(progressView)
+        
         // Add webView to main view
         view.addSubview(webView)
         
@@ -67,8 +71,9 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
         let webViewBottm = NSLayoutConstraint(item: webView, attribute: .bottom, relatedBy: .equal, toItem: webViewNavigationBar, attribute: .top, multiplier: 1, constant: 0)
         view.addConstraints([webViewTop, webViewWidth, webViewBottm])
         
-        // Add observer
+        // Add observers
         webView.addObserver(self, forKeyPath: "loading", options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
         // Load desired URL
         let urlString = prependUrl(url: "www.appcoda.com")
@@ -104,9 +109,18 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
             backButton.isEnabled = webView.canGoBack
             forwardButton.isEnabled = webView.canGoForward
         }
+        
+        if (keyPath == "estimatedProgress") {
+            progressView.isHidden = webView.estimatedProgress == 1
+            progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+        }
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         Alert.showbasic(title: "Error", message: error.localizedDescription, vc: self)
+    }
+    
+    private func webView(webView: WKWebView!, didFinishNavigation navigation: WKNavigation!) {
+        progressView.setProgress(0.0, animated: false)
     }
 }
