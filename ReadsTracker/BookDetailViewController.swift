@@ -69,7 +69,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     @IBAction func toReadAction(_ sender: Any) {
         setCategory(toRead)
     }
-
+    
     @IBAction func readingAction(_ sender: Any) {
         setCategory(reading)
     }
@@ -87,20 +87,20 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         return appDelegate.stack
     }
     
-     func fetchCurrentBook() -> [Book] {
-            let managedObjectContext = getCoreDataStack().context
-            
-            let currentBookFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
-            currentBookFetch.sortDescriptors = []
-            currentBookFetch.predicate = NSPredicate(format: "id == %@", argumentArray: [currentBook.id])
-            
-            do {
-                let savedBookArray = try managedObjectContext.fetch(currentBookFetch) as! [Book]
-                return savedBookArray
-            } catch {
-                fatalError("Failed to fetch book: \(error)")
-            }
+    func fetchCurrentBook() -> [Book] {
+        let managedObjectContext = getCoreDataStack().context
+        
+        let currentBookFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
+        currentBookFetch.sortDescriptors = []
+        currentBookFetch.predicate = NSPredicate(format: "id == %@", argumentArray: [currentBook.id])
+        
+        do {
+            let savedBookArray = try managedObjectContext.fetch(currentBookFetch) as! [Book]
+            return savedBookArray
+        } catch {
+            fatalError("Failed to fetch book: \(error)")
         }
+    }
     
     func loadSavedBooks() -> [Book]? {
         
@@ -147,11 +147,11 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
             let savedBook = savedBooksArray[0]
             savedBook.setValue(category, forKey: "category")
             savedBook.setValue(rating, forKey: "rating")
-        
-        do {
-            try getCoreDataStack().context.save()
-        } catch {
-            Alert.showbasic(title: "OK", message: "Couldn't save new category", vc: self)
+            
+            do {
+                try getCoreDataStack().context.save()
+            } catch {
+                Alert.showbasic(title: "OK", message: "Couldn't save new category", vc: self)
             }
         }
     }
@@ -206,15 +206,24 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     func hideCurrentCategory() {
         if let category = currentBook.category?.rawValue {
             switch category {
-                case category where category == toRead:
-                    toReadButton.isEnabled = false
-                case category where category == reading:
-                    readingButton.isEnabled = false
-                case category where category == finished:
-                    finishedButton.isEnabled = false
-                default:
-                    return
+            case category where category == toRead:
+                toReadButton.isEnabled = false
+            case category where category == reading:
+                readingButton.isEnabled = false
+            case category where category == finished:
+                finishedButton.isEnabled = false
+            default:
+                return
             }
+        }
+    }
+    
+    // MARK: - Delegate Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "shopping" {
+            let webViewViewController = segue.destination as! WebViewViewController
+            let searchSafeTitle = currentBook.title.replacingOccurrences(of: " ", with: "%20")
+            webViewViewController.amazonUrlString = "https://www.amazon.com/gp/search?ie=UTF8&tag=mcateerd2-20&linkCode=ur2&linkId=9d074a7a2ae209b3ad868be714042f88&camp=1789&creative=9325&index=books&keywords=\(searchSafeTitle)"
         }
     }
 }

@@ -15,6 +15,7 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
     
     // MARK: - Constants and Variables
     var webView: WKWebView
+    var amazonUrlString: String!
     @IBOutlet weak var barView: UIView!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var webViewNavigationBar: UIToolbar!
@@ -76,8 +77,10 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
         // Load desired URL
-        let urlString = prependUrl(url: "www.appcoda.com")
+        let urlString = prependUrl(url: amazonUrlString)
+        print(urlString)
         let url = URL(string: urlString)
+        print(url)
         let request = URLRequest(url: url!)
         webView.load(request)
         
