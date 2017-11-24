@@ -282,7 +282,7 @@
         <!--ReadingTableViewController-->
         <scene sceneID="iRV-vK-ykc">
             <objects>
-                <viewController id="IIh-1n-QBv" userLabel="ReadingTableViewController" customClass="ReadingTableViewController" customModule="BookTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReadingViewController" id="IIh-1n-QBv" userLabel="ReadingTableViewController" customClass="ReadingTableViewController" customModule="BookTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wru-g7-gb9"/>
                         <viewControllerLayoutGuide type="bottom" id="urc-Kt-llh"/>
@@ -504,7 +504,7 @@
         <!--FinishedTableViewController-->
         <scene sceneID="1EN-YI-PvA">
             <objects>
-                <viewController id="p6P-r6-hX0" userLabel="FinishedTableViewController" customClass="FinishedTableViewController" customModule="BookTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinishedViewController" id="p6P-r6-hX0" userLabel="FinishedTableViewController" customClass="FinishedTableViewController" customModule="BookTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fbc-FP-3rf"/>
                         <viewControllerLayoutGuide type="bottom" id="KMv-zX-F7D"/>
@@ -820,7 +820,7 @@
         <image name="forwardArrow" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="maP-SL-4DO"/>
-        <segue reference="3z3-MM-iCe"/>
+        <segue reference="S0q-hk-OFu"/>
+        <segue reference="Gw0-UC-UcF"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -68,14 +68,20 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     
     @IBAction func toReadAction(_ sender: Any) {
         setCategory(toRead)
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ToReadViewController") as! ToReadTableViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
     
     @IBAction func readingAction(_ sender: Any) {
         setCategory(reading)
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ReadingViewController") as! ReadingTableViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
     
     @IBAction func finishedAction(_ sender: Any) {
         setCategory(finished)
+        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "FinishedViewController") as! FinishedTableViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
     
     func shoppingTapped() {
@@ -123,11 +129,9 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     func setCategory(_ category: String) {
         if currentBookIsSaved() {
             updateBook(category: category, rating: starRating.rating)
-            self.navigationController?.popViewController(animated: true)
         } else {
             currentBook.rating = starRating.rating
             saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: category)!)
-            self.navigationController?.popViewController(animated: true)
         }
     }
     
