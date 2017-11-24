@@ -78,9 +78,7 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
         
         // Load desired URL
         let urlString = prependUrl(url: amazonUrlString)
-        print(urlString)
         let url = URL(string: urlString)
-        print(url)
         let request = URLRequest(url: url!)
         webView.load(request)
         
