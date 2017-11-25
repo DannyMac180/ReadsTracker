@@ -9,8 +9,6 @@
 import UIKit
 import WebKit
 
-// Todo: Set intial web page to the web page for the book using amazon affiliate marketing
-
 class WebViewViewController: UIViewController, WKNavigationDelegate, UITextFieldDelegate {
     
     // MARK: - Constants and Variables
@@ -105,6 +103,15 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
         return false
     }
     
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        Alert.showbasic(title: "Error", message: error.localizedDescription, vc: self)
+    }
+    
+    private func webView(webView: WKWebView!, didFinishNavigation navigation: WKNavigation!) {
+        progressView.setProgress(0.0, animated: false)
+    }
+    
+    // MARK: - Observer Methods
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if (keyPath == "loading") {
             backButton.isEnabled = webView.canGoBack
@@ -115,13 +122,5 @@ class WebViewViewController: UIViewController, WKNavigationDelegate, UITextField
             progressView.isHidden = webView.estimatedProgress == 1
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)
         }
-    }
-    
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        Alert.showbasic(title: "Error", message: error.localizedDescription, vc: self)
-    }
-    
-    private func webView(webView: WKWebView!, didFinishNavigation navigation: WKNavigation!) {
-        progressView.setProgress(0.0, animated: false)
     }
 }
