@@ -24,15 +24,17 @@ class GoogleBooksClient: NSObject {
     private static let googleBooksURL = "https://www.googleapis.com/books/v1/volumes?"
     private static let limit = 30
     
-    // MARK: Book Search Funtion
+    // MARK: Search Books Function
     
     func searchBooks(query: String, completionHandler: @escaping (_ books: [GoogleBook]?) -> Void) {
         var books: [GoogleBook] = []
         
+        // Set up URL Request
         let request = NSMutableURLRequest(url: URL(string: "\(GoogleBooksClient.googleBooksURL)q=\(query)&key=\(GoogleBooksClient.APIKey)&maxResults=\(GoogleBooksClient.limit)")!)
-        
+    
         let session = URLSession.shared
         
+        // Begin data task using request
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             if let error = error {
@@ -44,6 +46,7 @@ class GoogleBooksClient: NSObject {
                 return
             }
             
+            // If a request is successful, handle results with completionHandler
             if let validData = data {
                 books = self.jsonDataToBooks(data: validData)
                 completionHandler(books)
