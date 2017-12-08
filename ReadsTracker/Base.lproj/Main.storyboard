@@ -39,49 +39,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="sQn-qP-joO">
-                                <rect key="frame" x="43" y="36" width="288.5" height="411"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to ReadsTracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="LkC-OB-jx9">
-                                        <rect key="frame" x="11.5" y="0.0" width="265.5" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" image="BookTracker-AppIcon-LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-aK-nND">
-                                        <rect key="frame" x="44.5" y="55" width="200" height="200"/>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="FAD-fp-6v7">
-                                        <rect key="frame" x="38.5" y="281" width="212" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To search books use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wM-DL-d4X">
-                                                <rect key="frame" x="0.0" y="0.0" width="176" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Uim-wZ-YbA">
-                                                <rect key="frame" x="182" y="0.0" width="30" height="30"/>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a book to add it to your list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="eCU-Bb-uZj">
-                                        <rect key="frame" x="0.0" y="337" width="288.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left on a book to delete it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8Oc-Aj-F51">
-                                        <rect key="frame" x="9.5" y="387" width="270" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.07795933845194937" green="0.302398357760152" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-0l-vfn">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-0l-vfn">
                                 <rect key="frame" x="73" y="611" width="228" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.074903346937733706" green="0.30835810671022446" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Continue">
@@ -92,20 +51,107 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Daniel McAteer mcateerd2@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlt-ql-tn5">
-                                <rect key="frame" x="85" y="477" width="204" height="26.5"/>
+                                <rect key="frame" x="85" y="507" width="204" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="XXc-2K-UgL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.081223190722822636" green="0.30517566677517477" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Luj-W5-Gy7">
+                                <rect key="frame" x="44" y="28" width="286" height="457"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="sQn-qP-joO">
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="411"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to ReadsTracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="LkC-OB-jx9">
+                                                <rect key="frame" x="12" y="0.0" width="262" height="29.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" image="BookTracker-AppIcon-LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-aK-nND">
+                                                <rect key="frame" x="44" y="55.5" width="198" height="202.5"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="FAD-fp-6v7">
+                                                <rect key="frame" x="38" y="284" width="210" height="27"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To search books use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wM-DL-d4X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Uim-wZ-YbA">
+                                                        <rect key="frame" x="180" y="0.0" width="30" height="27"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="vOM-TO-CJL"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a book to add it to your list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="eCU-Bb-uZj">
+                                                <rect key="frame" x="6.5" y="337" width="273.5" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="5tP-3j-xoj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left on a book to delete it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8Oc-Aj-F51">
+                                                <rect key="frame" x="9" y="387" width="268" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="5lA-Zx-fQI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" red="0.07795933845194937" green="0.302398357760152" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="FAD-fp-6v7" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="38" id="Xg9-9x-Y2U"/>
+                                            <constraint firstItem="LkC-OB-jx9" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="12" id="hsu-tM-Dkv"/>
+                                            <constraint firstItem="gaZ-aK-nND" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="44" id="wdg-eX-H4A"/>
+                                            <constraint firstItem="8Oc-Aj-F51" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="9" id="z27-MA-AIE"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P56-Us-gra">
+                                        <rect key="frame" x="33.5" y="427" width="219.5" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To purchase a book tap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqT-FK-ZLH">
+                                                <rect key="frame" x="0.0" y="0.0" width="189.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" red="0.086115665729999999" green="0.30888146160000002" blue="0.52478009459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="shoppingCart" translatesAutoresizingMaskIntoConstraints="NO" id="77I-Qk-MX8">
+                                                <rect key="frame" x="189.5" y="0.0" width="30" height="30"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sQn-qP-joO" firstAttribute="top" secondItem="Luj-W5-Gy7" secondAttribute="top" id="6bD-iX-yyA"/>
+                                    <constraint firstItem="P56-Us-gra" firstAttribute="top" secondItem="sQn-qP-joO" secondAttribute="bottom" constant="16" id="Auk-Me-hlj"/>
+                                    <constraint firstItem="P56-Us-gra" firstAttribute="top" secondItem="Luj-W5-Gy7" secondAttribute="top" constant="427" id="OWe-RX-HDo"/>
+                                    <constraint firstAttribute="trailing" secondItem="sQn-qP-joO" secondAttribute="trailing" id="XFA-VN-Xya"/>
+                                    <constraint firstItem="sQn-qP-joO" firstAttribute="leading" secondItem="Luj-W5-Gy7" secondAttribute="leading" id="bSI-LN-eQN"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Hlt-ql-tn5" secondAttribute="trailing" constant="86" id="1Oy-5e-BCE"/>
-                            <constraint firstItem="sQn-qP-joO" firstAttribute="top" secondItem="Tx2-yv-yyd" secondAttribute="bottom" constant="16" id="4Rv-q6-gC8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sQn-qP-joO" secondAttribute="trailing" constant="27.5" id="MM3-OB-MZe"/>
-                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="top" secondItem="sQn-qP-joO" secondAttribute="bottom" constant="30" id="Muz-np-Qk3"/>
-                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leading" constant="85" id="OOk-Yu-QXP"/>
-                            <constraint firstItem="sQn-qP-joO" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="27" id="oIe-bT-8gu"/>
+                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="top" secondItem="Luj-W5-Gy7" secondAttribute="bottom" constant="22" id="BUr-BE-28h"/>
+                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="69" id="Luf-4w-c6Q"/>
+                            <constraint firstAttribute="bottom" secondItem="Hlt-ql-tn5" secondAttribute="bottom" constant="133" id="hg9-Gb-j13"/>
+                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="centerX" secondItem="y6p-0l-vfn" secondAttribute="centerX" id="hx2-s2-pQV"/>
+                            <constraint firstItem="y6p-0l-vfn" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="57" id="mhe-5U-gJr"/>
+                            <constraint firstItem="Luj-W5-Gy7" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="28" id="plb-Ce-eLT"/>
+                            <constraint firstItem="y6p-0l-vfn" firstAttribute="top" secondItem="Hlt-ql-tn5" secondAttribute="bottom" constant="77" id="urS-Ai-IK4"/>
+                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="centerX" secondItem="Luj-W5-Gy7" secondAttribute="centerX" id="w06-XV-uV4"/>
+                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="centerX" secondItem="Pvd-GT-hxV" secondAttribute="centerX" id="zJ7-YX-cdb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -673,35 +719,35 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qsJ-hb-3FL">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qsJ-hb-3FL">
                                         <rect key="frame" x="1" y="225.5" width="345" height="161"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" ambiguous="YES" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ywx-pt-ulN" customClass="RatingControl" customModule="BookTracker" customModuleProvider="target">
-                                        <rect key="frame" x="47.5" y="402.5" width="252" height="38.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ywx-pt-ulN" customClass="RatingControl" customModule="BookTracker" customModuleProvider="target">
+                                        <rect key="frame" x="47.5" y="402.5" width="252" height="44"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" distribution="fillEqually" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="FmN-6R-Irb">
-                                        <rect key="frame" x="29.5" y="457" width="288" height="64"/>
+                                        <rect key="frame" x="29.5" y="462.5" width="288" height="58.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iv-am-jYj" userLabel="To Read">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="58.5"/>
                                                 <state key="normal" image="ToRead-Button"/>
                                                 <connections>
                                                     <action selector="toReadAction:" destination="f22-9c-Rsa" eventType="touchUpInside" id="RYL-ni-tG4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gG-TS-mjE" userLabel="Reading">
-                                                <rect key="frame" x="112" y="0.0" width="64" height="64"/>
+                                                <rect key="frame" x="112" y="0.0" width="64" height="58.5"/>
                                                 <state key="normal" image="Reading-Button"/>
                                                 <connections>
                                                     <action selector="readingAction:" destination="f22-9c-Rsa" eventType="touchUpInside" id="Rrc-Mt-2lD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0h-Oj-TMb" userLabel="Finished">
-                                                <rect key="frame" x="224" y="0.0" width="64" height="64"/>
+                                                <rect key="frame" x="224" y="0.0" width="64" height="58.5"/>
                                                 <state key="normal" image="Finished-Button"/>
                                                 <connections>
                                                     <action selector="finishedAction:" destination="f22-9c-Rsa" eventType="touchUpInside" id="VMg-8H-2CZ"/>
@@ -842,6 +888,7 @@
         <image name="ToRead-Tab" width="32" height="32"/>
         <image name="backArrow" width="30" height="30"/>
         <image name="forwardArrow" width="30" height="30"/>
+        <image name="shoppingCart" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="j9N-gX-8ue"/>
