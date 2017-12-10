@@ -88,6 +88,10 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         performSegue(withIdentifier: "shopping", sender: self)
     }
     
+    func noteTapped() {
+        
+    }
+    
     func getCoreDataStack() -> CoreDataStack {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.stack
@@ -161,7 +165,9 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     }
     
     func setUpViews() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "shoppingCart"), style: .plain, target: self, action: #selector(shoppingTapped))
+        let shoppingButton = UIBarButtonItem(image: UIImage(named: "shoppingCart"), style: .plain, target: self, action: #selector(shoppingTapped))
+        let noteButton = UIBarButtonItem(image: UIImage(named: "note"), style: .plain, target: self, action: #selector(noteTapped))
+        self.navigationItem.rightBarButtonItems = [shoppingButton, noteButton]
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper")!)
         authorLabel.text = "by \(currentBook.authors[0])"
         titleLabel.text = currentBook.title
