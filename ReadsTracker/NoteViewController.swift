@@ -20,8 +20,20 @@ class NoteViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(currentBook.title)
+        self.noteNavigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
+        self.view.backgroundColor = HexColor.hexStringToUIColor(hex: "74B3CE")
         noteNavigationBar.topItem?.title = "\(currentBook.title) Notes"
     }
+    
+    // MARK: - Actions
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func save(_ sender: Any) {
+    }
+    
+    
+    
     
 }
