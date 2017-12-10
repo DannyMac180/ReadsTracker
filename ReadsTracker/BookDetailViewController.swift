@@ -89,7 +89,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     }
     
     func noteTapped() {
-        
+        performSegue(withIdentifier: "showNote", sender: self)
     }
     
     func getCoreDataStack() -> CoreDataStack {
@@ -234,6 +234,11 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
             let webViewViewController = segue.destination as! WebViewViewController
             let searchSafeTitle = currentBook.title.replacingOccurrences(of: " ", with: "%20")
             webViewViewController.amazonUrlString = "https://www.amazon.com/gp/search?ie=UTF8&tag=mcateerd2-20&linkCode=ur2&linkId=9d074a7a2ae209b3ad868be714042f88&camp=1789&creative=9325&index=books&keywords=\(searchSafeTitle)"
+        }
+        
+        if segue.identifier == "showNote" {
+            let noteViewController = segue.destination as! NoteViewController
+            noteViewController.currentBook = currentBook
         }
     }
 }

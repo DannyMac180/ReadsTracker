@@ -21,6 +21,7 @@
 		3021AA671F8A8CC4008F62D6 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA661F8A8CC4008F62D6 /* BookTableViewCell.swift */; };
 		3021AA691F8A8CE6008F62D6 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA681F8A8CE6008F62D6 /* BookDetailViewController.swift */; };
 		3021AA6B1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA6A1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift */; };
+		3026C0DB1FDDF46B00F22E38 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3026C0DA1FDDF46B00F22E38 /* NoteViewController.swift */; };
 		3036BB621FC07C880036C2FB /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036BB611FC07C880036C2FB /* WebViewViewController.swift */; };
 		3072B3681F958F13001DB5A7 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072B3671F958F13001DB5A7 /* HexColor.swift */; };
 		307B1C791FB69CFE00D9D342 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B1C781FB69CFE00D9D342 /* OnboardingViewController.swift */; };
@@ -48,6 +49,7 @@
 		3021AA661F8A8CC4008F62D6 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		3021AA681F8A8CE6008F62D6 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		3021AA6A1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBooksTableViewController.swift; sourceTree = "<group>"; };
+		3026C0DA1FDDF46B00F22E38 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		3036BB611FC07C880036C2FB /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		3072B3671F958F13001DB5A7 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		307B1C781FB69CFE00D9D342 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				30AA73E71FAD44AB00EF4034 /* RatingControl.swift */,
 				307B1C781FB69CFE00D9D342 /* OnboardingViewController.swift */,
 				3036BB611FC07C880036C2FB /* WebViewViewController.swift */,
+				3026C0DA1FDDF46B00F22E38 /* NoteViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				3021AA551F8A8954008F62D6 /* GoogleBooksClient.swift in Sources */,
 				3021AA631F8A8C49008F62D6 /* ReadingTableViewController.swift in Sources */,
 				3021AA531F8A890E008F62D6 /* CoreDataStack.swift in Sources */,
+				3026C0DB1FDDF46B00F22E38 /* NoteViewController.swift in Sources */,
 				3036BB621FC07C880036C2FB /* WebViewViewController.swift in Sources */,
 				3021AA651F8A8C9E008F62D6 /* FinishedTableViewController.swift in Sources */,
 			);
