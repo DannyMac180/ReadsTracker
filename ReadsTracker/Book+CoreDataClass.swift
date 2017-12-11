@@ -12,7 +12,7 @@ import CoreData
 
 @objc(Book)
 public class Book: NSManagedObject {
-    convenience init(rating: Int, id: String, category: String?, title: String, author: String, pageCount: Int, cover: String?, summary: String?, context: NSManagedObjectContext) {
+    convenience init(rating: Int, id: String, category: String?, title: String, author: String, pageCount: Int, cover: String?, summary: String?, note: String, context: NSManagedObjectContext) {
         if let ent = NSEntityDescription.entity(forEntityName: "Book", in: context) {
             self.init(entity: ent, insertInto: context)
             self.rating = Int16(rating)
@@ -23,6 +23,7 @@ public class Book: NSManagedObject {
             self.pageCount = Int16(pageCount)
             self.cover = cover
             self.summary = summary
+            self.note = note
         } else {
             fatalError("Unable to find entity name")
         }

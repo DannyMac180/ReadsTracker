@@ -34,7 +34,6 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,8 +43,8 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         }
         
         self.tabBarController?.tabBar.isHidden = false
-        
         hideCurrentCategory()
+        setUpViews()
     }
     
     override func viewDidLayoutSubviews() {
@@ -169,6 +168,13 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         let noteButton = UIBarButtonItem(image: UIImage(named: "note"), style: .plain, target: self, action: #selector(noteTapped))
         self.navigationItem.rightBarButtonItems = [shoppingButton, noteButton]
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "paper")!)
+        
+        if !currentBookIsSaved() {
+            noteButton.isEnabled = false
+        } else {
+            noteButton.isEnabled = true
+        }
+        
         authorLabel.text = "by \(currentBook.authors[0])"
         titleLabel.text = currentBook.title
         summaryTextView.text = currentBook.summary
