@@ -21,10 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         var vc: UIViewController
         
+        // Register default value as user's first use
         UserDefaults.standard.register(defaults: ["isFirstUse": true])
         
+        // If this is the user's first time opening the app, display the onboarding screen
         if UserDefaults.standard.bool(forKey: "isFirstUse") == true {
             vc = storyBoard.instantiateViewController(withIdentifier: "OnboardingViewController")
+            // Otherwise display the ToReadTableView (Initial View Controller)
         } else {
             vc = storyBoard.instantiateInitialViewController()!
         }
