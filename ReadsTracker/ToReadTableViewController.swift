@@ -25,6 +25,7 @@ class ToReadTableViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Set up table view design
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundView = UIImageView(image: UIImage(named: "Bookshelf Background"))
         self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
@@ -32,6 +33,8 @@ class ToReadTableViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        // Set ViewController's array to books saved in Core Data
         if let savedBooks = loadSavedBooksToRead() {
             booksToRead = savedBooks
         }
@@ -76,6 +79,7 @@ class ToReadTableViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
+    // Remove book from Core Data when cell is swiped left on and delete is pressed
     func removeBookFromTableView(indexPath: IndexPath) {
         tableView.beginUpdates()
         booksToRead.remove(at: indexPath.row)
