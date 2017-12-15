@@ -24,6 +24,7 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Set up tableView design
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundView = UIImageView(image: UIImage(named: "Bookshelf Background"))
         self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
@@ -31,6 +32,8 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        // Load the books that are saved in Core Data to the View Controllers array
         if let savedBooks = loadSavedBooksToRead() {
             booksReading = savedBooks
         }
