@@ -25,6 +25,7 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Set up tableView design
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundView = UIImageView(image: UIImage(named: "Bookshelf Background"))
         self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
@@ -32,6 +33,8 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        // Load saved books from Core Data into the View Controller's array
         if let savedBooks = loadSavedBooksToRead() {
             booksFinished = savedBooks
         }
