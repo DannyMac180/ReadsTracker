@@ -67,20 +67,20 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     
     @IBAction func toReadAction(_ sender: Any) {
         setCategory(toRead)
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ToReadViewController") as! ToReadTableViewController
-        self.navigationController!.pushViewController(viewController, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.selectedIndex = 0
     }
     
     @IBAction func readingAction(_ sender: Any) {
         setCategory(reading)
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ReadingViewController") as! ReadingTableViewController
-        self.navigationController!.pushViewController(viewController, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.selectedIndex = 1
     }
     
     @IBAction func finishedAction(_ sender: Any) {
         setCategory(finished)
-        let viewController = self.storyboard!.instantiateViewController(withIdentifier: "FinishedViewController") as! FinishedTableViewController
-        self.navigationController!.pushViewController(viewController, animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.selectedIndex = 2
     }
     
     func shoppingTapped() {
