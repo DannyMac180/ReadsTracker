@@ -85,8 +85,8 @@ class GoogleBooksClient: NSObject {
                     var summary = searchInfo["textSnippet"] as! String? {
                     
                     // Transform strings to fix GoogleBooks characters that were broken
-                    summary = addParentheses(summary: summary)
-                    print(summary)
+                    summary = addParentheses(toSummary: summary)
+                    summary = addApostrophe(toSummary: summary)
                     
                     let cover = imageDict["smallThumbnail"]
                     let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title, rating: 0)
@@ -120,8 +120,12 @@ class GoogleBooksClient: NSObject {
         return viewController
     }
     
-    func addParentheses(summary: String) -> String {
-        return summary.replacingOccurrences(of: "&quot;", with: "\"")
+    func addParentheses(toSummary: String) -> String {
+        return toSummary.replacingOccurrences(of: "&quot;", with: "\"")
+    }
+    
+    func addApostrophe(toSummary: String) -> String {
+        return toSummary.replacingOccurrences(of: "&#39;", with: "'")
     }
 }
 
