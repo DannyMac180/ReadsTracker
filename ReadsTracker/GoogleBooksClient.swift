@@ -31,7 +31,7 @@ class GoogleBooksClient: NSObject {
         
         // Set up URL Request
         let request = NSMutableURLRequest(url: URL(string: "\(GoogleBooksClient.googleBooksURL)q=\(query)&key=\(GoogleBooksClient.APIKey)&maxResults=\(GoogleBooksClient.limit)")!)
-    
+        
         let session = URLSession.shared
         
         // Begin data task using request
@@ -41,7 +41,7 @@ class GoogleBooksClient: NSObject {
                 print("Download failed due to error: \(error)")
                 let vc = self.getTopViewController()
                 DispatchQueue.main.async {
-                        Alert.showbasic(title: "Oops!", message: error.localizedDescription, vc: vc)
+                    Alert.showbasic(title: "Oops!", message: error.localizedDescription, vc: vc)
                 }
                 return
             }
@@ -82,7 +82,11 @@ class GoogleBooksClient: NSObject {
                     let pageCount = volumeInfo["pageCount"] as! Int?,
                     let imageDict = volumeInfo["imageLinks"] as? [String: String],
                     let searchInfo = book["searchInfo"] as? [String: Any],
-                    let summary = searchInfo["textSnippet"] as! String? {
+                    var summary = searchInfo["textSnippet"] as! String? {
+                    
+                    // Transform strings to fix GoogleBooks characters that were broken
+                    summary = addParentheses(summary: summary)
+                    print(summary)
                     
                     let cover = imageDict["smallThumbnail"]
                     let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title, rating: 0)
@@ -98,7 +102,8 @@ class GoogleBooksClient: NSObject {
         return books
     }
     
-func getTopViewController() -> UIViewController {
+    // MARK: - Helper Methods
+    func getTopViewController() -> UIViewController {
         
         var viewController = UIViewController()
         
@@ -113,6 +118,10 @@ func getTopViewController() -> UIViewController {
             }
         }
         return viewController
+    }
+    
+    func addParentheses(summary: String) -> String {
+        return summary.replacingOccurrences(of: "&quot;", with: "\"")
     }
 }
 
