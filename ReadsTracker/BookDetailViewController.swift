@@ -55,6 +55,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
+        // Fetch the current book and save it to the view array.
         let savedBooksArray = fetchCurrentBook()
         
         if !savedBooksArray.isEmpty {
