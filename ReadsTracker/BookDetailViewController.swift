@@ -135,7 +135,8 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     
     func setCategory(_ category: String) {
         if currentBookIsSaved() {
-            updateBook(category: category, rating: starRating.rating)
+            update(category: category)
+            update(rating: starRating.rating)
         } else {
             currentBook.rating = starRating.rating
             saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: category)!)
@@ -151,12 +152,26 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         return false
     }
     
-    func updateBook(category: String, rating: Int) {
+    func update(category: String) {
         let savedBooksArray = fetchCurrentBook()
         
         if !savedBooksArray.isEmpty {
             let savedBook = savedBooksArray[0]
             savedBook.setValue(category, forKey: "category")
+            
+            do {
+                try getCoreDataStack().context.save()
+            } catch {
+                Alert.showbasic(title: "OK", message: "Couldn't save new category", vc: self)
+            }
+        }
+    }
+    
+    func update(rating: Int) {
+        let savedBooksArray = fetchCurrentBook()
+        
+        if !savedBooksArray.isEmpty {
+            let savedBook = savedBooksArray[0]
             savedBook.setValue(rating, forKey: "rating")
             
             do {
