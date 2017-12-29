@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-0l-vfn">
-                                <rect key="frame" x="73" y="611" width="228" height="36"/>
+                                <rect key="frame" x="73" y="611" width="230" height="36"/>
                                 <color key="backgroundColor" red="0.074903346937733706" green="0.30835810671022446" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Continue">
@@ -50,41 +50,32 @@
                                     <action selector="getStartedAction:" destination="3Az-gr-s5w" eventType="touchUpInside" id="AFX-2b-C7b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Daniel McAteer mcateerd2@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlt-ql-tn5">
-                                <rect key="frame" x="85" y="507" width="204" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="XXc-2K-UgL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" red="0.081223190722822636" green="0.30517566677517477" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Luj-W5-Gy7">
-                                <rect key="frame" x="44" y="28" width="286" height="457"/>
+                                <rect key="frame" x="44" y="28" width="290" height="500"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="sQn-qP-joO">
-                                        <rect key="frame" x="0.0" y="0.0" width="286" height="411"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="289.5" height="484"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to ReadsTracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="LkC-OB-jx9">
-                                                <rect key="frame" x="12" y="0.0" width="262" height="29.5"/>
+                                                <rect key="frame" x="12" y="0.0" width="265.5" height="30.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" image="BookTracker-AppIcon-LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-aK-nND">
-                                                <rect key="frame" x="44" y="55.5" width="198" height="202.5"/>
+                                                <rect key="frame" x="44" y="56.5" width="201.5" height="209"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="FAD-fp-6v7">
-                                                <rect key="frame" x="38" y="284" width="210" height="27"/>
+                                                <rect key="frame" x="43.5" y="291.5" width="202" height="31.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To search books use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wM-DL-d4X">
-                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="166" height="31.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" red="0.08611566573381424" green="0.30888146162033081" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Uim-wZ-YbA">
-                                                        <rect key="frame" x="180" y="0.0" width="30" height="27"/>
+                                                        <rect key="frame" x="172" y="0.0" width="30" height="31.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="vOM-TO-CJL"/>
                                                         </constraints>
@@ -92,7 +83,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on a book to add it to your list" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="eCU-Bb-uZj">
-                                                <rect key="frame" x="6.5" y="337" width="273.5" height="24"/>
+                                                <rect key="frame" x="8" y="349" width="273.5" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="5tP-3j-xoj"/>
                                                 </constraints>
@@ -101,56 +92,63 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left on a book to delete it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="8Oc-Aj-F51">
-                                                <rect key="frame" x="9" y="387" width="268" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="5lA-Zx-fQI"/>
-                                                </constraints>
+                                                <rect key="frame" x="17.5" y="399" width="254.5" height="22.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.07795933845194937" green="0.302398357760152" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZIr-fZ-gc2">
+                                                <rect key="frame" x="35" y="447.5" width="219.5" height="36.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To purchase a book tap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqT-FK-ZLH">
+                                                        <rect key="frame" x="0.0" y="7.5" width="189.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.086115665729999999" green="0.30888146160000002" blue="0.52478009459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="shoppingCart" translatesAutoresizingMaskIntoConstraints="NO" id="77I-Qk-MX8">
+                                                        <rect key="frame" x="189.5" y="3.5" width="30" height="30"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="FAD-fp-6v7" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="38" id="Xg9-9x-Y2U"/>
                                             <constraint firstItem="LkC-OB-jx9" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="12" id="hsu-tM-Dkv"/>
                                             <constraint firstItem="gaZ-aK-nND" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="44" id="wdg-eX-H4A"/>
-                                            <constraint firstItem="8Oc-Aj-F51" firstAttribute="leading" secondItem="sQn-qP-joO" secondAttribute="leading" constant="9" id="z27-MA-AIE"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P56-Us-gra">
-                                        <rect key="frame" x="33.5" y="427" width="219.5" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To purchase a book tap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqT-FK-ZLH">
-                                                <rect key="frame" x="0.0" y="0.0" width="189.5" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" red="0.086115665729999999" green="0.30888146160000002" blue="0.52478009459999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="shoppingCart" translatesAutoresizingMaskIntoConstraints="NO" id="77I-Qk-MX8">
-                                                <rect key="frame" x="189.5" y="0.0" width="30" height="30"/>
-                                            </imageView>
-                                        </subviews>
+                                        <rect key="frame" x="35.5" y="500" width="219" height="0.0"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="sQn-qP-joO" firstAttribute="top" secondItem="Luj-W5-Gy7" secondAttribute="top" id="6bD-iX-yyA"/>
-                                    <constraint firstItem="P56-Us-gra" firstAttribute="top" secondItem="sQn-qP-joO" secondAttribute="bottom" constant="16" id="Auk-Me-hlj"/>
-                                    <constraint firstItem="P56-Us-gra" firstAttribute="top" secondItem="Luj-W5-Gy7" secondAttribute="top" constant="427" id="OWe-RX-HDo"/>
-                                    <constraint firstAttribute="trailing" secondItem="sQn-qP-joO" secondAttribute="trailing" id="XFA-VN-Xya"/>
-                                    <constraint firstItem="sQn-qP-joO" firstAttribute="leading" secondItem="Luj-W5-Gy7" secondAttribute="leading" id="bSI-LN-eQN"/>
+                                    <constraint firstItem="P56-Us-gra" firstAttribute="top" secondItem="sQn-qP-joO" secondAttribute="bottom" constant="16" id="Anj-FL-ySg"/>
+                                    <constraint firstAttribute="bottom" secondItem="P56-Us-gra" secondAttribute="bottom" id="G1w-e8-z8z"/>
+                                    <constraint firstAttribute="trailing" secondItem="P56-Us-gra" secondAttribute="trailing" constant="35" id="Gvv-Wn-KRo"/>
+                                    <constraint firstItem="P56-Us-gra" firstAttribute="leading" secondItem="Luj-W5-Gy7" secondAttribute="leading" constant="35.5" id="qr1-CV-8oC"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Daniel McAteer mcateerd2@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hlt-ql-tn5">
+                                <rect key="frame" x="86" y="535" width="204" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="XXc-2K-UgL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.081223190722822636" green="0.30517566677517477" blue="0.52478009462356567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="top" secondItem="Luj-W5-Gy7" secondAttribute="bottom" constant="22" id="BUr-BE-28h"/>
-                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="69" id="Luf-4w-c6Q"/>
-                            <constraint firstAttribute="bottom" secondItem="Hlt-ql-tn5" secondAttribute="bottom" constant="133" id="hg9-Gb-j13"/>
+                            <constraint firstItem="Luj-W5-Gy7" firstAttribute="top" secondItem="Tx2-yv-yyd" secondAttribute="bottom" constant="8" id="BFm-Ew-1sH"/>
+                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="70" id="Luf-4w-c6Q"/>
+                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="top" secondItem="Luj-W5-Gy7" secondAttribute="bottom" constant="7.5" id="cCm-Bw-Vsk"/>
+                            <constraint firstAttribute="bottom" secondItem="Hlt-ql-tn5" secondAttribute="bottom" constant="105" id="hg9-Gb-j13"/>
                             <constraint firstItem="Hlt-ql-tn5" firstAttribute="centerX" secondItem="y6p-0l-vfn" secondAttribute="centerX" id="hx2-s2-pQV"/>
                             <constraint firstItem="y6p-0l-vfn" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="57" id="mhe-5U-gJr"/>
-                            <constraint firstItem="Luj-W5-Gy7" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leadingMargin" constant="28" id="plb-Ce-eLT"/>
-                            <constraint firstItem="y6p-0l-vfn" firstAttribute="top" secondItem="Hlt-ql-tn5" secondAttribute="bottom" constant="77" id="urS-Ai-IK4"/>
-                            <constraint firstItem="Hlt-ql-tn5" firstAttribute="centerX" secondItem="Luj-W5-Gy7" secondAttribute="centerX" id="w06-XV-uV4"/>
+                            <constraint firstAttribute="trailing" secondItem="Luj-W5-Gy7" secondAttribute="trailing" constant="41.5" id="nn0-sU-YJ9"/>
+                            <constraint firstItem="Luj-W5-Gy7" firstAttribute="leading" secondItem="Pvd-GT-hxV" secondAttribute="leading" constant="44" id="oqS-x8-kQS"/>
+                            <constraint firstItem="y6p-0l-vfn" firstAttribute="top" secondItem="Hlt-ql-tn5" secondAttribute="bottom" constant="49" id="urS-Ai-IK4"/>
                             <constraint firstItem="Hlt-ql-tn5" firstAttribute="centerX" secondItem="Pvd-GT-hxV" secondAttribute="centerX" id="zJ7-YX-cdb"/>
                         </constraints>
                     </view>
