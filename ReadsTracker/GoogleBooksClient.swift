@@ -89,7 +89,7 @@ class GoogleBooksClient: NSObject {
                     summary = addApostrophe(toSummary: summary)
                     
                     let cover = imageDict["smallThumbnail"]
-                    let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title, rating: 0)
+                    let bookInfo = GoogleBook(id: id, authors: authors, category: nil, cover: cover, pageCount: pageCount, summary: summary, title: title, rating: 0, pagesCompleted: 0)
                     books.append(bookInfo)
                 }
             }

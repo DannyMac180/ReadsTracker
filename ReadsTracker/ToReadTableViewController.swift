@@ -109,7 +109,7 @@ class ToReadTableViewController: UIViewController, UITableViewDataSource, UITabl
         let detailController = self.storyboard!.instantiateViewController(withIdentifier: "BookDetailViewController") as! BookDetailViewController
         let selectedBook = booksToRead[indexPath.row]
         
-        passedBook = GoogleBook(id: selectedBook.id!, authors: [selectedBook.author!], category: GoogleBook.Category(rawValue: "toRead"), cover: selectedBook.cover, pageCount: Int(selectedBook.pageCount), summary: selectedBook.summary, title: selectedBook.title!, rating: Int(selectedBook.rating))
+        passedBook = GoogleBook(id: selectedBook.id!, authors: [selectedBook.author!], category: GoogleBook.Category(rawValue: "toRead"), cover: selectedBook.cover, pageCount: Int(selectedBook.pageCount), summary: selectedBook.summary, title: selectedBook.title!, rating: Int(selectedBook.rating), pagesCompleted: Int(selectedBook.pagesCompleted))
         detailController.currentBook = passedBook
         
         self.navigationController!.pushViewController(detailController, animated: true)

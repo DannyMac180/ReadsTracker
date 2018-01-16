@@ -17,6 +17,7 @@ class GoogleBook {
     let summary: String?
     let title: String
     var rating: Int
+    var pagesCompleted: Int
     
     enum  Category: String {
         case toRead
@@ -25,7 +26,7 @@ class GoogleBook {
         case none
     }
     
-    init(id: String, authors: [String], category: Category?, cover: String?, pageCount: Int?, summary: String?, title: String, rating: Int) {
+    init(id: String, authors: [String], category: Category?, cover: String?, pageCount: Int?, summary: String?, title: String, rating: Int, pagesCompleted: Int) {
         self.id = id
         self.authors = authors
         self.category = category
@@ -34,5 +35,6 @@ class GoogleBook {
         self.summary = summary
         self.title = title
         self.rating = rating
+        self.pagesCompleted = pagesCompleted
     }
 }
