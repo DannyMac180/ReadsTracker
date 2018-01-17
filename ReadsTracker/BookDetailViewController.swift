@@ -203,11 +203,12 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         bookImageView.sd_setImage(with: URL(string: currentBook.cover!))
         starRating.rating = currentBook.rating
         summaryTextView.backgroundColor = UIColor.clear
-        progressSlider.value = Float(currentBook.pagesCompleted)
-        progressLabel.text = "\(Int(progressSlider.value)) Pages Completed"
         
         if let pageCount = currentBook.pageCount {
             pageCountLabel.text = "\(String(describing: pageCount)) pages"
+            progressSlider.maximumValue = Float(pageCount)
+            progressSlider.setValue(Float(currentBook.pagesCompleted), animated: true)
+            progressLabel.text = "\(currentBook.pagesCompleted) Pages Completed"
         } else {
             pageCountLabel.text = "Page Count N/A"
         }
@@ -235,7 +236,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         savedBook.setValue(book.summary, forKey: "summary")
         savedBook.setValue(book.cover, forKey: "cover")
         savedBook.setValue(book.rating, forKey: "rating")
-        savedBook.setValue(Int(progressSlider.value), forKey: "pagesCompleted")
+        savedBook.setValue(book.pagesCompleted, forKey: "pagesCompleted")
         
         do {
             try getCoreDataStack().saveContext()
@@ -261,7 +262,8 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     }
 
     @IBAction func sliderValueChanged(_ sender: Any) {
-        progressLabel.text = "\(Int(progressSlider.value)) Pages Completed"
+        currentBook.pagesCompleted = Int(progressSlider.value)
+        progressLabel.text = "\(currentBook.pagesCompleted) Pages Completed"
     }
     
     
