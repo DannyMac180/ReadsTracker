@@ -23,6 +23,8 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var readingButton: UIButton!
     @IBOutlet weak var finishedButton: UIButton!
     @IBOutlet weak var starRating: RatingControl!
+    @IBOutlet weak var progressSlider: UISlider!
+    @IBOutlet weak var progressLabel: UILabel!
     
     // MARK: - Variables/Constants
     var currentBook: GoogleBook!
@@ -61,6 +63,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         if !savedBooksArray.isEmpty {
             let savedBook = savedBooksArray[0]
             savedBook.setValue(starRating.rating, forKey: "rating")
+            savedBook.setValue(Int(progressSlider.value), forKey: "pagesCompleted")
         }
     }
     
@@ -200,6 +203,8 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         bookImageView.sd_setImage(with: URL(string: currentBook.cover!))
         starRating.rating = currentBook.rating
         summaryTextView.backgroundColor = UIColor.clear
+        progressSlider.value = Float(currentBook.pagesCompleted)
+        progressLabel.text = "\(progressSlider.value) Pages Completed"
         
         if let pageCount = currentBook.pageCount {
             pageCountLabel.text = "\(String(describing: pageCount)) pages"
@@ -215,6 +220,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         authorLabel.font = UIFont(name: "GillSans", size: 23.0)
         pageCountLabel.font = UIFont(name: "GillSans", size: 20.0)
         summaryTextView.font = UIFont(name: "HelveticaNeue-Bold", size: 18.0)
+        progressLabel.font = UIFont(name: "GillSans", size: 20.0)
     }
     
     func saveCoreData(book: GoogleBook, category: GoogleBook.Category) {
@@ -229,6 +235,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         savedBook.setValue(book.summary, forKey: "summary")
         savedBook.setValue(book.cover, forKey: "cover")
         savedBook.setValue(book.rating, forKey: "rating")
+        savedBook.setValue(Int(progressSlider.value), forKey: "pagesCompleted")
         
         do {
             try getCoreDataStack().saveContext()
@@ -252,6 +259,11 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
             }
         }
     }
+
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        progressLabel.text = "\(progressSlider.value) Pages Completed"
+    }
+    
     
     // MARK: - Delegate Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

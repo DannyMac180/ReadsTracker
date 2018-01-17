@@ -696,7 +696,7 @@
                                                 <color key="tintColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="sliderValueChanged:" destination="f22-9c-Rsa" eventType="valueChanged" id="N2g-Xg-3GO"/>
+                                                    <action selector="sliderValueChanged:" destination="f22-9c-Rsa" eventType="valueChanged" id="rwK-rh-YXv"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiP-mJ-Wox">
@@ -762,8 +762,8 @@
                         <outlet property="bookImageView" destination="AeT-Vi-dLn" id="LuR-US-vS3"/>
                         <outlet property="finishedButton" destination="b0h-Oj-TMb" id="2Yl-lt-vre"/>
                         <outlet property="pageCountLabel" destination="VBq-4E-34q" id="PYs-8d-PVx"/>
-                        <outlet property="progressLabel" destination="JiP-mJ-Wox" id="Z5d-fP-pbP"/>
-                        <outlet property="progressSlider" destination="N5g-1F-qsB" id="mpC-7H-0rr"/>
+                        <outlet property="progressLabel" destination="JiP-mJ-Wox" id="RGC-t6-WqI"/>
+                        <outlet property="progressSlider" destination="N5g-1F-qsB" id="fdg-mo-ZA2"/>
                         <outlet property="readingButton" destination="2gG-TS-mjE" id="3Rb-sf-S4S"/>
                         <outlet property="starRating" destination="ywx-pt-ulN" id="hMC-KL-Y9q"/>
                         <outlet property="summaryTextView" destination="qsJ-hb-3FL" id="vUT-ng-rhh"/>
