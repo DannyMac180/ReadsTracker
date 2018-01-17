@@ -204,7 +204,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         starRating.rating = currentBook.rating
         summaryTextView.backgroundColor = UIColor.clear
         progressSlider.value = Float(currentBook.pagesCompleted)
-        progressLabel.text = "\(progressSlider.value) Pages Completed"
+        progressLabel.text = "\(Int(progressSlider.value)) Pages Completed"
         
         if let pageCount = currentBook.pageCount {
             pageCountLabel.text = "\(String(describing: pageCount)) pages"
@@ -261,7 +261,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     }
 
     @IBAction func sliderValueChanged(_ sender: Any) {
-        progressLabel.text = "\(progressSlider.value) Pages Completed"
+        progressLabel.text = "\(Int(progressSlider.value)) Pages Completed"
     }
     
     
