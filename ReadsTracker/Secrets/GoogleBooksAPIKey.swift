@@ -7,7 +7,5 @@
 //
 
 struct GoogleBooksAPIKey {
-    
-   public let key = "AIzaSyD28_NhPREPwCneV8DXVNcyT2oqyU1ybiM"
-
+    public let key = "AIzaSyD28_NhPREPwCneV8DXVNcyT2oqyU1ybiM"
 }
