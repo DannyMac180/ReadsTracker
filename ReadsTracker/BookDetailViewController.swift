@@ -24,7 +24,6 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
     @IBOutlet weak var finishedButton: UIButton!
     @IBOutlet weak var starRating: RatingControl!
     @IBOutlet weak var progressSlider: UISlider!
-    @IBOutlet weak var progressLabel: UILabel!
     
     // MARK: - Variables/Constants
     var currentBook: GoogleBook!
@@ -140,6 +139,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         if currentBookIsSaved() {
             update(category: category)
             update(rating: starRating.rating)
+            update(pagesCompleted: Int(progressSlider.value))
         } else {
             currentBook.rating = starRating.rating
             saveCoreData(book: currentBook, category: GoogleBook.Category(rawValue: category)!)
@@ -185,6 +185,21 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
+    func update(pagesCompleted: Int) {
+        let savedBooksArray = fetchCurrentBook()
+        
+        if !savedBooksArray.isEmpty {
+            let savedBook = savedBooksArray[0]
+            savedBook.setValue(pagesCompleted, forKey: "pagesCompleted")
+            
+            do {
+                try getCoreDataStack().context.save()
+            } catch {
+                Alert.showbasic(title: "OK", message: "Couldn't save new category", vc: self)
+            }
+        }
+    }
+    
     func setUpViews() {
         let shoppingButton = UIBarButtonItem(image: UIImage(named: "shoppingCart"), style: .plain, target: self, action: #selector(shoppingTapped))
         let noteButton = UIBarButtonItem(image: UIImage(named: "note"), style: .plain, target: self, action: #selector(noteTapped))
@@ -205,10 +220,9 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         summaryTextView.backgroundColor = UIColor.clear
         
         if let pageCount = currentBook.pageCount {
-            pageCountLabel.text = "\(String(describing: pageCount)) pages"
+            pageCountLabel.text = "\(currentBook.pagesCompleted) / \(pageCount) Pages Completed"
             progressSlider.maximumValue = Float(pageCount)
             progressSlider.setValue(Float(currentBook.pagesCompleted), animated: true)
-            progressLabel.text = "\(currentBook.pagesCompleted) Pages Completed"
         } else {
             pageCountLabel.text = "Page Count N/A"
         }
@@ -221,7 +235,6 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         authorLabel.font = UIFont(name: "GillSans", size: 23.0)
         pageCountLabel.font = UIFont(name: "GillSans", size: 20.0)
         summaryTextView.font = UIFont(name: "HelveticaNeue-Bold", size: 18.0)
-        progressLabel.font = UIFont(name: "GillSans", size: 20.0)
     }
     
     func saveCoreData(book: GoogleBook, category: GoogleBook.Category) {
@@ -236,7 +249,7 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         savedBook.setValue(book.summary, forKey: "summary")
         savedBook.setValue(book.cover, forKey: "cover")
         savedBook.setValue(book.rating, forKey: "rating")
-        savedBook.setValue(book.pagesCompleted, forKey: "pagesCompleted")
+        savedBook.setValue(Int(progressSlider.value), forKey: "pagesCompleted")
         
         do {
             try getCoreDataStack().saveContext()
@@ -263,7 +276,10 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
 
     @IBAction func sliderValueChanged(_ sender: Any) {
         currentBook.pagesCompleted = Int(progressSlider.value)
-        progressLabel.text = "\(currentBook.pagesCompleted) Pages Completed"
+        
+        if let pageCount = currentBook.pageCount {
+            pageCountLabel.text = "\(currentBook.pagesCompleted) / \(pageCount) Pages Completed"
+        }
     }
     
     

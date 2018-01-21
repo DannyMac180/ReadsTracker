@@ -671,7 +671,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="pIg-9p-BMu">
-                                        <rect key="frame" x="0.0" y="137" width="347" height="125"/>
+                                        <rect key="frame" x="0.0" y="137" width="347" height="100.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPF-bW-EN3">
                                                 <rect key="frame" x="0.0" y="0.0" width="347" height="23"/>
@@ -699,43 +699,37 @@
                                                     <action selector="sliderValueChanged:" destination="f22-9c-Rsa" eventType="valueChanged" id="rwK-rh-YXv"/>
                                                 </connections>
                                             </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiP-mJ-Wox">
-                                                <rect key="frame" x="0.0" y="103.5" width="347" height="21.5"/>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qsJ-hb-3FL">
-                                        <rect key="frame" x="1" y="273" width="345" height="128"/>
+                                        <rect key="frame" x="1" y="248.5" width="345" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ywx-pt-ulN" customClass="RatingControl" customModule="BookTracker" customModuleProvider="target">
-                                        <rect key="frame" x="47.5" y="412" width="252" height="44"/>
+                                        <rect key="frame" x="47.5" y="387.5" width="252" height="44"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" distribution="fillEqually" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="FmN-6R-Irb">
-                                        <rect key="frame" x="29.5" y="467" width="288" height="54"/>
+                                        <rect key="frame" x="29.5" y="442.5" width="288" height="78.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4iv-am-jYj" userLabel="To Read">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="78.5"/>
                                                 <state key="normal" image="ToRead-Button"/>
                                                 <connections>
                                                     <action selector="toReadAction:" destination="f22-9c-Rsa" eventType="touchUpInside" id="RYL-ni-tG4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gG-TS-mjE" userLabel="Reading">
-                                                <rect key="frame" x="112" y="0.0" width="64" height="54"/>
+                                                <rect key="frame" x="112" y="0.0" width="64" height="78.5"/>
                                                 <state key="normal" image="Reading-Button"/>
                                                 <connections>
                                                     <action selector="readingAction:" destination="f22-9c-Rsa" eventType="touchUpInside" id="Rrc-Mt-2lD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0h-Oj-TMb" userLabel="Finished">
-                                                <rect key="frame" x="224" y="0.0" width="64" height="54"/>
+                                                <rect key="frame" x="224" y="0.0" width="64" height="78.5"/>
                                                 <state key="normal" image="Finished-Button"/>
                                                 <connections>
                                                     <action selector="finishedAction:" destination="f22-9c-Rsa" eventType="touchUpInside" id="VMg-8H-2CZ"/>
@@ -762,7 +756,6 @@
                         <outlet property="bookImageView" destination="AeT-Vi-dLn" id="LuR-US-vS3"/>
                         <outlet property="finishedButton" destination="b0h-Oj-TMb" id="2Yl-lt-vre"/>
                         <outlet property="pageCountLabel" destination="VBq-4E-34q" id="PYs-8d-PVx"/>
-                        <outlet property="progressLabel" destination="JiP-mJ-Wox" id="RGC-t6-WqI"/>
                         <outlet property="progressSlider" destination="N5g-1F-qsB" id="fdg-mo-ZA2"/>
                         <outlet property="readingButton" destination="2gG-TS-mjE" id="3Rb-sf-S4S"/>
                         <outlet property="starRating" destination="ywx-pt-ulN" id="hMC-KL-Y9q"/>
