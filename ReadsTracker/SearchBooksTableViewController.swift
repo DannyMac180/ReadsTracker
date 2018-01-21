@@ -114,46 +114,21 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
 extension SearchBooksTableViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
     func updateSearchResults(for searchController: UISearchController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        if let formattedTerm = formatSearch(withText: searchController.searchBar.text!) {
-            googleBooksClient.searchBooks(query: formattedTerm) { (books) in
-                DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    if let books = books {
-                        self.bookSearchResults = books
-                        self.tableView.setNeedsLayout()
-                        self.tableView.reloadData()
-                        }
-                    }
-                }
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            }
-        }
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload(_:)), object: searchController)
+        perform(#selector(self.reload(_:)), with: searchController, afterDelay: 0.5)
     }
-
-extension SearchBooksTableViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    
+    @objc func reload(_ searchController: UISearchController) {
+        guard let query = searchController.searchBar.text, query.trimmingCharacters(in: .whitespaces) != "" else {
+            print("Nothing to search")
+            return
+        }
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        if let formattedTerm = formatSearch(withText: searchBar.text) {
+        if let formattedTerm = formatSearch(withText: searchController.searchBar.text) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 DispatchQueue.main.async {
-                    if let books = books {
-                        self.bookSearchResults = books
-                        self.tableView.setNeedsLayout()
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        }
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        if let formattedTerm = formatSearch(withText: searchText) {
-            googleBooksClient.searchBooks(query: formattedTerm) { (books) in
-                DispatchQueue.main.async {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
