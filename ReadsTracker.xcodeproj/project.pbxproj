@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300426B820153A8200B73333 /* GoogleBooksAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300426B720153A8200B73333 /* GoogleBooksAPIKey.swift */; };
 		300437331F9D749000528643 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3004372F1F9D749000528643 /* LaunchScreen.storyboard */; };
 		300437341F9D749000528643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300437311F9D749000528643 /* Main.storyboard */; };
 		3021AA3A1F8A8789008F62D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA391F8A8789008F62D6 /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		300426B720153A8200B73333 /* GoogleBooksAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksAPIKey.swift; sourceTree = "<group>"; };
 		300437301F9D749000528643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		300437321F9D749000528643 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3021AA361F8A8789008F62D6 /* BookTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300426B920153D9800B73333 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				300426B720153A8200B73333 /* GoogleBooksAPIKey.swift */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
 		3021AA2D1F8A8789008F62D6 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 			children = (
 				3021AA391F8A8789008F62D6 /* AppDelegate.swift */,
 				3021AA521F8A890E008F62D6 /* CoreDataStack.swift */,
+				300426B920153D9800B73333 /* Secrets */,
 				3021AA511F8A87C1008F62D6 /* Clients */,
 				3021AA4E1F8A87A9008F62D6 /* Models */,
 				3021AA4F1F8A87B0008F62D6 /* Views */,
@@ -329,6 +340,7 @@
 				3021AA6B1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift in Sources */,
 				3021AA691F8A8CE6008F62D6 /* BookDetailViewController.swift in Sources */,
 				30AA73E81FAD44AB00EF4034 /* RatingControl.swift in Sources */,
+				300426B820153A8200B73333 /* GoogleBooksAPIKey.swift in Sources */,
 				3021AA671F8A8CC4008F62D6 /* BookTableViewCell.swift in Sources */,
 				30DDF13A1F8EEE46007DAB31 /* Alert.swift in Sources */,
 				30AA5686200D9E9100547F1B /* Book+CoreDataClass.swift in Sources */,

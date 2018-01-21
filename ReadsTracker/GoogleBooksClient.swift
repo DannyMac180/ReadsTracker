@@ -20,7 +20,8 @@ class GoogleBooksClient: NSObject {
     
     // MARK: Constants
     
-    private static let APIKey = "AIzaSyD28_NhPREPwCneV8DXVNcyT2oqyU1ybiM"
+    private static let GoogleBooksAPI = GoogleBooksAPIKey()
+    private static let APIKey = GoogleBooksAPI.key
     private static let googleBooksURL = "https://www.googleapis.com/books/v1/volumes?"
     private static let limit = 30
     
