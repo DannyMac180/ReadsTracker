@@ -124,11 +124,12 @@ extension SearchBooksTableViewController: UISearchResultsUpdating {
             return
         }
         
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let formattedTerm = formatSearch(withText: searchController.searchBar.text) {
             googleBooksClient.searchBooks(query: formattedTerm) { (books) in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     if let books = books {
                         self.bookSearchResults = books
                         self.tableView.setNeedsLayout()
