@@ -12,7 +12,7 @@
 		300437341F9D749000528643 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 300437311F9D749000528643 /* Main.storyboard */; };
 		3021AA3A1F8A8789008F62D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA391F8A8789008F62D6 /* AppDelegate.swift */; };
 		3021AA3C1F8A8789008F62D6 /* ToReadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA3B1F8A8789008F62D6 /* ToReadTableViewController.swift */; };
-		3021AA421F8A8789008F62D6 /* BookTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA401F8A8789008F62D6 /* BookTracker.xcdatamodeld */; };
+		3021AA421F8A8789008F62D6 /* ReadsTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA401F8A8789008F62D6 /* ReadsTracker.xcdatamodeld */; };
 		3021AA441F8A8789008F62D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3021AA431F8A8789008F62D6 /* Assets.xcassets */; };
 		3021AA531F8A890E008F62D6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA521F8A890E008F62D6 /* CoreDataStack.swift */; };
 		3021AA551F8A8954008F62D6 /* GoogleBooksClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021AA541F8A8954008F62D6 /* GoogleBooksClient.swift */; };
@@ -130,7 +130,7 @@
 				30AA5684200D9E9100547F1B /* Book+CoreDataClass.swift */,
 				30AA5685200D9E9100547F1B /* Book+CoreDataProperties.swift */,
 				3021AA561F8A8A25008F62D6 /* GoogleBook.swift */,
-				3021AA401F8A8789008F62D6 /* BookTracker.xcdatamodeld */,
+				3021AA401F8A8789008F62D6 /* ReadsTracker.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -334,7 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3021AA421F8A8789008F62D6 /* BookTracker.xcdatamodeld in Sources */,
+				3021AA421F8A8789008F62D6 /* ReadsTracker.xcdatamodeld in Sources */,
 				3021AA3C1F8A8789008F62D6 /* ToReadTableViewController.swift in Sources */,
 				307B1C791FB69CFE00D9D342 /* OnboardingViewController.swift in Sources */,
 				3021AA6B1F8A8D3A008F62D6 /* SearchBooksTableViewController.swift in Sources */,
@@ -534,12 +534,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3021AA401F8A8789008F62D6 /* BookTracker.xcdatamodeld */ = {
+		3021AA401F8A8789008F62D6 /* ReadsTracker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				3021AA411F8A8789008F62D6 /* BookTracker.xcdatamodel */,
 			);
 			currentVersion = 3021AA411F8A8789008F62D6 /* BookTracker.xcdatamodel */;
+			name = ReadsTracker.xcdatamodeld;
 			path = BookTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
