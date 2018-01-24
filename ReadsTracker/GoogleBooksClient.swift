@@ -41,8 +41,6 @@ class GoogleBooksClient: NSObject {
         let maxResults = URLQueryItem(name: "maxResults", value: "\(GoogleBooksClient.limit)")
         requestComponents.queryItems = [bookQuery, apiKey, maxResults]
         
-        print(requestComponents.url!)
-        
         // Set up URL Request
         let request = NSMutableURLRequest(url: requestComponents.url!)
         
