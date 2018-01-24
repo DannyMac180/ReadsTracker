@@ -22,7 +22,6 @@ class GoogleBooksClient: NSObject {
     
     private static let GoogleBooksAPI = GoogleBooksAPIKey()
     private static let APIKey = GoogleBooksAPI.key
-    private static let googleBooksURL = "https://www.googleapis.com/books/v1/volumes?"
     private static let limit = 30
     
     // MARK: Search Books Function
@@ -30,8 +29,22 @@ class GoogleBooksClient: NSObject {
     func searchBooks(query: String, completionHandler: @escaping (_ books: [GoogleBook]?) -> Void) {
         var books: [GoogleBook] = []
         
+        // Set up URL components
+        var requestComponents = URLComponents()
+        requestComponents.scheme = "https"
+        requestComponents.host = "www.googleapis.com"
+        requestComponents.path = "/books/v1/volumes"
+        
+        // Set up query items
+        let bookQuery = URLQueryItem(name: "q", value: query)
+        let apiKey = URLQueryItem(name: "key", value: GoogleBooksClient.APIKey)
+        let maxResults = URLQueryItem(name: "maxResults", value: "\(GoogleBooksClient.limit)")
+        requestComponents.queryItems = [bookQuery, apiKey, maxResults]
+        
+        print(requestComponents.url!)
+        
         // Set up URL Request
-        let request = NSMutableURLRequest(url: URL(string: "\(GoogleBooksClient.googleBooksURL)q=\(query)&key=\(GoogleBooksClient.APIKey)&maxResults=\(GoogleBooksClient.limit)")!)
+        let request = NSMutableURLRequest(url: requestComponents.url!)
         
         let session = URLSession.shared
         
