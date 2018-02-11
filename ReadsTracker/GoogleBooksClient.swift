@@ -108,7 +108,7 @@ class GoogleBooksClient: NSObject {
             return books
             
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
         
         return books
