@@ -26,6 +26,7 @@
 		3036BB621FC07C880036C2FB /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036BB611FC07C880036C2FB /* WebViewViewController.swift */; };
 		3072B3681F958F13001DB5A7 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3072B3671F958F13001DB5A7 /* HexColor.swift */; };
 		307B1C791FB69CFE00D9D342 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307B1C781FB69CFE00D9D342 /* OnboardingViewController.swift */; };
+		308D87C320328BFA00054137 /* CoreDataClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D87C220328BFA00054137 /* CoreDataClient.swift */; };
 		30AA5686200D9E9100547F1B /* Book+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA5684200D9E9100547F1B /* Book+CoreDataClass.swift */; };
 		30AA5687200D9E9100547F1B /* Book+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA5685200D9E9100547F1B /* Book+CoreDataProperties.swift */; };
 		30AA73E81FAD44AB00EF4034 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AA73E71FAD44AB00EF4034 /* RatingControl.swift */; };
@@ -57,6 +58,7 @@
 		3036BB611FC07C880036C2FB /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		3072B3671F958F13001DB5A7 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		307B1C781FB69CFE00D9D342 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		308D87C220328BFA00054137 /* CoreDataClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataClient.swift; sourceTree = "<group>"; };
 		30AA5684200D9E9100547F1B /* Book+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataClass.swift"; path = "../Book+CoreDataClass.swift"; sourceTree = "<group>"; };
 		30AA5685200D9E9100547F1B /* Book+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Book+CoreDataProperties.swift"; path = "../Book+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		30AA73E71FAD44AB00EF4034 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				3021AA541F8A8954008F62D6 /* GoogleBooksClient.swift */,
+				308D87C220328BFA00054137 /* CoreDataClient.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				3072B3681F958F13001DB5A7 /* HexColor.swift in Sources */,
 				3021AA571F8A8A25008F62D6 /* GoogleBook.swift in Sources */,
 				3021AA551F8A8954008F62D6 /* GoogleBooksClient.swift in Sources */,
+				308D87C320328BFA00054137 /* CoreDataClient.swift in Sources */,
 				3021AA631F8A8C49008F62D6 /* ReadingTableViewController.swift in Sources */,
 				3021AA531F8A890E008F62D6 /* CoreDataStack.swift in Sources */,
 				3026C0DB1FDDF46B00F22E38 /* NoteViewController.swift in Sources */,
