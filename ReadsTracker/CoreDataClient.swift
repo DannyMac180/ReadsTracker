@@ -8,24 +8,25 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class CoreDataClient {
-    func getCoreDataStack() -> CoreDataStack {
+    class func getStack() -> CoreDataStack {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.stack
     }
     
-    func loadSavedBooks(category: GoogleBook.Category.Type, array: [Book]) -> [Book]? {
+    class func loadSavedBooks(category: GoogleBook.Category.RawValue) -> [Book]? {
         
         do {
-            let managedObjectContext = getCoreDataStack().context
+            let managedObjectContext = getStack().context
             
             let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
             booksFetch.sortDescriptors = []
-            booksFetch.predicate = NSPredicate(format: "category == %@", argumentArray: [GoogleBook.Category.toRead.rawValue])
+            booksFetch.predicate = NSPredicate(format: "category == %@", argumentArray: [category])
             
             do {
-                array = try managedObjectContext.fetch(booksFetch) as! [Book]
+                let array = try managedObjectContext.fetch(booksFetch) as! [Book]
                 return array
                 
             } catch {
