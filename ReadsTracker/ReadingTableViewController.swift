@@ -42,12 +42,6 @@ class ReadingTableViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // MARK: - Private Functions
-    
-    func getCoreDataStack() -> CoreDataStack {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.stack
-    }
-    
     func deleteCoreDataOf(book: Book) {
         
         do {
