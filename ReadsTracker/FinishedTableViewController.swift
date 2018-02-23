@@ -35,7 +35,7 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
         super.viewWillAppear(true)
         
         // Load saved books from Core Data into the View Controller's array
-        if let savedBooks = loadSavedBooksToRead() {
+        if let savedBooks = CoreDataClient.loadSavedBooks(category: GoogleBook.Category.finished.rawValue) {
             booksFinished = savedBooks
         }
         
@@ -43,36 +43,11 @@ class FinishedTableViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     // MARK: - Private Functions
-    
-    func loadSavedBooksToRead() -> [Book]? {
-        
-        do {
-            let managedObjectContext = getCoreDataStack().context
-            
-            let booksFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Book")
-            booksFetch.sortDescriptors = []
-            booksFetch.predicate = NSPredicate(format: "category == %@", argumentArray: [GoogleBook.Category.finished.rawValue])
-            
-            do {
-                booksFinished = try managedObjectContext.fetch(booksFetch) as! [Book]
-                return booksFinished
-                
-            } catch {
-                fatalError("Failed to fetch photos: \(error)")
-            }
-        }
-    }
-    
-    func getCoreDataStack() -> CoreDataStack {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.stack
-    }
-    
     func deleteCoreDataOf(book: Book) {
         
         do {
-            getCoreDataStack().context.delete(book)
-            try getCoreDataStack().saveContext()
+            CoreDataClient.getStack().context.delete(book)
+            try CoreDataClient.getStack().saveContext()
             
         } catch {
             print("Deleting book failed")

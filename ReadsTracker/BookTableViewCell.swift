@@ -18,6 +18,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func updateUI() {
+        self.selectionStyle = .none
         self.backgroundColor = UIColor.clear
         backGroundCardView.backgroundColor = UIColor.white
         backGroundCardView.layer.cornerRadius = 3.0
