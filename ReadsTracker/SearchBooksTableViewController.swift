@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import CoreData
 
-class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -30,6 +30,7 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         self.navigationController?.navigationBar.barTintColor = HexColor.hexStringToUIColor(hex: "74B3CE")
         tableView.backgroundView = UIImageView(image: UIImage(named: "Bookshelf Background"))
         
+        searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -107,6 +108,10 @@ class SearchBooksTableViewController: UIViewController, UITableViewDelegate, UIT
         detailController.currentBook = passedBook
         
         self.navigationController!.pushViewController(detailController, animated: true)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchController.searchBar.resignFirstResponder()
     }
 }
 
