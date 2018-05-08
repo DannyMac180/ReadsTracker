@@ -89,11 +89,11 @@ class BookDetailViewController: UIViewController, WKNavigationDelegate {
         self.tabBarController?.selectedIndex = finishedIndex
     }
     
-    func shoppingTapped() {
+    @objc func shoppingTapped() {
         performSegue(withIdentifier: "shopping", sender: self)
     }
     
-    func noteTapped() {
+    @objc func noteTapped() {
         performSegue(withIdentifier: "showNote", sender: self)
     }
     

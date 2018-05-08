@@ -28,6 +28,7 @@ class BookTableViewCell: UITableViewCell {
         backGroundCardView.layer.shadowOpacity = 0.8
         titleLabel.font = UIFont(name: "GillSans", size: 23.0)
         authorLabel.font = UIFont(name: "GillSans", size: 20.0)
+        authorLabel.textColor = UIColor.gray
     }
     
     override func awakeFromNib() {

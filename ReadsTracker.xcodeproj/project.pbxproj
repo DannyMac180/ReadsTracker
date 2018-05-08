@@ -243,6 +243,7 @@
 					3021AA351F8A8789008F62D6 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 7H8FME2M4D;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -492,7 +493,8 @@
 				PRODUCT_NAME = BookTracker;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -510,7 +512,8 @@
 				PRODUCT_NAME = BookTracker;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
